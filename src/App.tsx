@@ -11,6 +11,7 @@ import VersionSelector from "./components/VersionSelector/VersionSelector";
 import PotionCommand from "./components/PotionCommand/PotionCommand";
 import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
+import PotionCommand from "./components/PotionCommand/PotionCommand";
 
 function App() {
 	const [language, setLanguage] = useState("");

@@ -50,6 +50,7 @@ const PotionCommand_effect = ({version, data}: PotionCommandProps) => {
 			{effectBlocks.map((block, idx) => (
 				<div key={idx} className="effect-block">
 					<div className="input">
+						<label htmlFor={`effect-select-${idx}`} className="text-minecraft">effet</label>
 						<select id={`effect-select-${idx}`} className="minecraft-input fixed-width" value={block.effect}
 								onChange={(e) => handleSelectChange(idx, "effect", e.target.value)}>
 							{data.map((item, idx) => (
@@ -68,7 +69,6 @@ const PotionCommand_effect = ({version, data}: PotionCommandProps) => {
 					<div className="input4">
 						<input type="checkbox" className="checkbox-style" checked={block.particles}
 							   onChange={(e) => handleSelectChange(idx, "particles", e.target.checked)}/>
-					</div>
 					<div className="input5">
 						<input type="checkbox" className="checkbox-style" checked={block.icon}
 							   onChange={(e) => handleSelectChange(idx, "icon", e.target.checked)}/>
