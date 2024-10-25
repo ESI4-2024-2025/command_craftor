@@ -21,7 +21,7 @@ function Home() {
 	}, []);
 
 	return (
-		<div className="home" data-testid="Home">
+		<div className="home">
 			<div className="home-logo">
 				<img src={logo} alt="Logo"/>
 			</div>
