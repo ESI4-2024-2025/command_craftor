@@ -50,6 +50,7 @@ const PotionCommand_effect = ({version, data}: PotionCommandProps) => {
 			{effectBlocks.map((block, idx) => (
 				<div key={idx} className="effect-block">
 					<div className="input">
+						<label htmlFor={`effect-select-${idx}`} className="text-minecraft">effet</label>
 						<select id={`effect-select-${idx}`} className="minecraft-input fixed-width" value={block.effect}
 								onChange={(e) => handleSelectChange(idx, "effect", e.target.value)}>
 							{data.map((item, idx) => (
