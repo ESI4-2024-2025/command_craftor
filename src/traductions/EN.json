@@ -28,7 +28,8 @@
   },
   "COMMANDS": {
     "TITLE": "Command List",
-    "GIVE_ENCHANTED_ITEMS": "/give enchanted items"
+    "GIVE_ENCHANTED_ITEMS": "/give enchanted items",
+    "GIVE_POTIONS": "/give potions"
   },
   "GIVE_ENCHANTED_ITEMS": {
     "ITEM": "Item",

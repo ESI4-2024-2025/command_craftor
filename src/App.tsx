@@ -9,6 +9,7 @@ import Account from "./components/UserSection/Account";
 import Changelog from "./components/Changelog/Changelog";
 import LanguageSelector from "./components/Languageselector/LanguageSelector";
 import VersionSelector from "./components/VersionSelector/VersionSelector";
+import PotionCommand from "./components/PotionCommand/PotionCommand";
 
 function App() {
 	const [version, setVersion] = useState("");
@@ -22,7 +23,10 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home/>}/>
 					<Route path="/commands" element={<Commands/>}/>
-					<Route path="/commands/give" element={<GiveEnchantedItems version={Number(version)} language={language}/>}/>
+					<Route path="/commands/give" element={
+						<GiveEnchantedItems version={Number(version)} language={language}/>}/>
+					<Route path="/commands/givepotion" element={
+						<PotionCommand version={Number(version)} language={language}/>}/>
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
 					<Route path="/changelog" element={<Changelog/>}/>

@@ -22,7 +22,7 @@
 
 # faire une page de potions
 
-- ajouter les effets dans la base
+- v ajouter les effets dans la base
 - faire la page :
 	- sélecteur de type (avec icône si possible)
 	- input pour l'username
