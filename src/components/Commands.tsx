@@ -9,9 +9,10 @@ function Commands() {
 	return (
 		<div className="commands-page">
 			<h1 className="commands-title">{t("COMMANDS.TITLE")}</h1>
-			<div className="commands" data-testid="Home">
+			<div className="commands">
 				<div className="commands-buttons">
 					<ButtonsJavaEdition title="COMMANDS.GIVE_ENCHANTED_ITEMS" taille="35" path="giveenchanteditems"/>
+					<ButtonsJavaEdition title="COMMANDS.GIVE_POTIONS" taille="35" path="givepotion"/>
 				</div>
 			</div>
 			<div className="back-button">

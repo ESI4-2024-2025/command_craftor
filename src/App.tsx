@@ -7,6 +7,8 @@ import AccountCreationOrConnexion from "./components/UserSection/AccountCreation
 import Account from "./components/UserSection/Account";
 import Changelog from "./components/Changelog/Changelog";
 import LanguageSelector from "./components/Languageselector/LanguageSelector";
+import VersionSelector from "./components/VersionSelector/VersionSelector";
+import PotionCommand from "./components/PotionCommand/PotionCommand";
 import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
 
@@ -21,6 +23,7 @@ function App() {
 					<Route path="/" element={<Home/>}/>
 					<Route path="/commands" element={<Commands/>}/>
 					<Route path="/commands/giveenchanteditems" element={<GiveEnchantedItems language={language}/>}/>
+					<Route path="/commands/givepotion" element={<PotionCommand language={language}/>}/>
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
 					<Route path="/changelog" element={<Changelog/>}/>

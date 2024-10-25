@@ -193,7 +193,7 @@ ___
 	return (
 		<div className="changelog-page">
 			<h1 className="changelog-title">Changelog</h1>
-			<div className="changelog" data-testid="Home">
+			<div className="changelog">
 				<ReactMarkdown>{markdownContent}</ReactMarkdown>
 			</div>
 			<div className="back-button">

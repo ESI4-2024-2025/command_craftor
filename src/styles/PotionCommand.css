@@ -1,0 +1,115 @@
+.potion-command {
+	align-items: center;
+	margin:      0 25vw;
+	width:       50vw;
+}
+
+.potion-command-main-container {
+	display:        flex;
+	flex-direction: column;
+	padding-top:    2vh;
+}
+
+.input-block {
+	align-items:     center;
+	display:         flex;
+	flex-direction:  row;
+	justify-content: center;
+	margin-bottom:   17px;
+}
+
+.input-block label {
+	flex:          .6;
+	padding-right: 10px;
+	text-align:    left;
+}
+
+.input-block button, .input-block input, .input-block select {
+	flex: 0.1666;
+}
+
+.effect-block {
+	background: rgba(7, 7, 7, 0.4);
+	border:     1px solid #AFAFAF;
+	box-shadow: none;
+	color:      #FFF;
+	display:    flex;
+	gap:        1rem;
+	height:     4rem;
+	margin:     1rem auto;
+	padding:    1rem;
+	width:      50vw;
+}
+
+.effect-block label {
+	flex:          .6;
+	padding-right: 10px;
+	text-align:    left;
+}
+
+.effect-block button, .effect-block input, .effect-block select {
+	flex: 0.1666;
+}
+
+.effect-block .fixed-width {
+	min-width: 17rem
+}
+
+.effect-block .input {
+	display: block
+}
+
+.effect-block .input2 .minecraft-input,
+.effect-block .input3 .minecraft-input {
+	height: 4vh;
+	width:  5rem;
+	font-size: 1.5rem;
+}
+
+.checkbox-style {
+	width: 4vh;
+	height: 4vh;
+	background-color: #000000;
+	border: 3px solid white;
+	box-sizing: border-box;
+}
+
+.effect-block .McButtons {
+	margin: 0 !important;
+}
+
+.potion-header-row .potion-header1 {
+	width: 17rem;
+}
+
+.potion-header-row .potion-header2 {
+	width: 7rem;
+}
+
+.potion-header-row .potion-header3 {
+
+}
+
+.potion-header-row .potion-header4 {
+
+}
+
+.potion-header-row .potion-header5 {
+
+}
+
+.potion-header-row .potion-header1,
+.potion-header-row .potion-header2,
+.potion-header-row .potion-header3,
+.potion-header-row .potion-header4,
+.potion-header-row .potion-header5 {
+	text-align: center;
+}
+
+.potion-header-row {
+	display:    flex;
+	gap:        1rem;
+	margin-top: 3rem;
+	padding:    1rem;
+	width:      50vw;
+}

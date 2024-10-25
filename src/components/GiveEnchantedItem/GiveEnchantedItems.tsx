@@ -203,7 +203,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	};
 
 	return (
-		<div className="give-enchanted-items" data-testid="GiveEnchantedItems">
+		<div className="give-enchanted-items">
 			<div className="back-button-container">
 				<ButtonsJavaEdition taille="20" title="GLOBAL.BACK" path="goback"/>
 				<VersionSelector setVersion={setVersion}/>
