@@ -8,13 +8,14 @@ import {useTranslation} from "react-i18next";
 import {generateEnchantmentCommand} from "./Generator";
 import Item from "../../interfaces/Item";
 import Material from "../../interfaces/Material";
+import VersionSelector from "../VersionSelector/VersionSelector";
 
 interface GiveEnchantedItemsProps {
-	version: number;
 	language: string;
 }
 
-const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({version, language}) => {
+const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
+	const [versionString, setVersion] = useState("");
 	const [item, setItem] = useState("null");
 	const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 	const [enchantmentValues, setEnchantmentValues] = useState<number[]>([]);
@@ -29,6 +30,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({version, languag
 	const [isCopyDisabled, setIsCopyDisabled] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const {t} = useTranslation();
+	const version = Number(versionString);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -204,6 +206,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({version, languag
 		<div className="give-enchanted-items" data-testid="GiveEnchantedItems">
 			<div className="back-button-container">
 				<ButtonsJavaEdition taille="20" title="GLOBAL.BACK" path="goback"/>
+				<VersionSelector setVersion={setVersion}/>
 			</div>
 			<div className="main-container">
 				<div className="input-block">
