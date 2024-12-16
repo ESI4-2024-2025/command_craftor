@@ -50,7 +50,12 @@
     }
   },
   "POTION_COMMAND": {
-    "TYPE": "type de potion"
+    "TYPE": "type de potion",
+    "EFFECT": "Effet",
+    "DURATION": "Duree",
+    "AMPLIFIER": "Amplificat°",
+    "PARTICLES": "Particules",
+    "ICON": "Icone"
   },
   "MINECRAFT": {
     "ITEMS": {
