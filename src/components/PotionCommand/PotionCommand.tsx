@@ -6,6 +6,7 @@ import PotionCommand_effect from "./PotionCommand_effect";
 import Potions from "../../interfaces/Potions";
 import Notification from "../utilities/Notification";
 import Effect from "../../interfaces/Effect";
+import {generatePotionCommand} from "./Generator";
 
 interface PotionCommandProps {
 	version: number;
@@ -17,6 +18,7 @@ const PotionCommand: React.FC<PotionCommandProps> = ({version, language}) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [potionType, setPotionType] = useState("potion");
 	const [username, setUsername] = useState("");
+	const [potionParams, setPotionParams] = useState<Effect[]>([]);
 	const [commandResult, setCommandResult] = useState("");
 	const [notificationMessage, setNotificationMessage] = useState<{ text: string, type: string } | null>(null);
 	const {t} = useTranslation();
@@ -35,6 +37,15 @@ const PotionCommand: React.FC<PotionCommandProps> = ({version, language}) => {
 				setIsLoading(false); // Set loading to false after data is received
 			});
 	}, []);
+
+	/**
+	 * useEffect hook to generate the command result when the potion type, username or data changes.
+	 * Generates a new command with the selected potion type, username and empty effects.
+	 */
+	useEffect(() => {
+		const newCommand = generatePotionCommand(potionType, username, potionParams, version);
+		setCommandResult(newCommand);
+	}, [potionType, username, potionParams, data]);
 
 	/**
 	 * update the command result when the potion type or username
@@ -73,7 +84,7 @@ const PotionCommand: React.FC<PotionCommandProps> = ({version, language}) => {
 	 * @param newValues - The new values of the potion effects.
 	 */
 	const handleValuesChange = (newValues: Effect[]) => {
-		console.log("Updated values:", newValues);
+		setPotionParams(newValues);
 	};
 
 	/**

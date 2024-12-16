@@ -50,7 +50,7 @@
     }
   },
   "POTION_COMMAND": {
-    "TYPE": "type de potion",
+    "TYPE": "Type de potion",
     "EFFECT": "Effet",
     "DURATION": "Duree",
     "AMPLIFIER": "Amplificat°",

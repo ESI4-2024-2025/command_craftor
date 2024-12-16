@@ -1,7 +1,7 @@
 .potion-command {
-	margin: 0 25vw;
-	width:  50vw;
 	align-items: center;
+	margin:      0 25vw;
+	width:       50vw;
 }
 
 .potion-command-main-container {
@@ -11,13 +11,11 @@
 }
 
 .potion-effects-selector {
-	width: 58vw;
-	display: flex;
 	align-content: flex-start;
-	max-height: 48vh;
-	height: 48vh;
-	overflow-y: auto;
+	display:       flex;
+	height:        48vh;
 	margin-bottom: 1rem;
+	width:         58vw;
 }
 
 .input-block {
@@ -66,63 +64,70 @@
 }
 
 .effect-block .input1 .minecraft-input {
-	min-width:  18rem;
 	font-size: 1.5rem;
+	min-width: 18rem;
 }
 
 .effect-block .input2 .minecraft-input,
 .effect-block .input3 .minecraft-input {
-	height: 4vh;
-	width:  9rem;
 	font-size: 1.5rem;
+	height:    4vh;
+	width:     9rem;
+}
+
+.effect-button-blocks {
+	height:    43vh;
+	max-height:    43vh;
+	overflow-y:    auto;
 }
 
 .effect-button-block {
 	display: flex;
 }
 
-.button-effect-block{
-	margin: 1rem;
-	display: flex;
+.button-effect-block {
+	align-items:     center;
+	display:         flex;
 	justify-content: center;
-	align-items: center;
+	margin:          1rem;
 }
 
-.input4, .input5{
-	width: 10rem;
-	display: flex;
+.input4, .input5 {
+	align-items:     center;
+	display:         flex;
 	justify-content: center;
-	align-items: center;
+	width:           10rem;
 }
-
 
 .checkbox-style {
-	min-width: 5vh;
-	min-height: 5vh;
-	appearance: none;
+	align-items:        center;
 	-webkit-appearance: none;
-	background-color: #000000;
-	border: 3px solid white;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	appearance:         none;
+	background-color:   #000;
+	border:             3px solid white;
+	box-sizing:         border-box;
+	display:            flex;
+	justify-content:    center;
+	min-height:         5vh;
+	min-width:          5vh;
 }
+
 .checkbox-style:checked {
-	background-color: #0c0c0c;
+	background-color: #0C0C0C;
 	position:         relative;
 }
 
 .checkbox-style:checked::after {
-	content: 'X';
-	color: white;
+	color:       white;
+	content:     'X';
 	font-family: "Minecraft", sans-serif;
-	font-size: 2rem;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	font-size:   2rem;
+	left:        50%;
+	position:    absolute;
+	top:         50%;
+	transform:   translate(-50%, -50%);
 }
+
 .effect-block .McButtons {
 	margin: 0 !important;
 }
@@ -155,10 +160,10 @@
 }
 
 .potion-header-row {
-	display:    flex;
-	gap:        1rem;
-	padding:    1rem;
-	width:      50vw;
+	display: flex;
+	gap:     1rem;
+	padding: 1rem;
+	width:   50vw;
 }
 
 .command-renderer {
@@ -172,9 +177,9 @@
 }
 
 .potion-bar-container {
-	width: 52vw;
 	border-bottom: 1px solid white;
 	border-top:    1px solid white;
 	margin:        10px 0;
 	padding:       10px 0;
+	width:         52vw;
 }
