@@ -8,7 +8,7 @@ import {useTranslation} from "react-i18next";
 function AccountCreationOrConnexion() {
     const { t } = useTranslation();
 
-    const [activeTab, setActiveTab] = useState("creation");
+    const [activeTab, setActiveTab] = useState("connexion");
 
     return (
         <div className="account-creation-or-connexion">
@@ -16,18 +16,18 @@ function AccountCreationOrConnexion() {
                 <ButtonsJavaEdition taille="20" title="GLOBAL.BACK" path="/"/>
             </div>
             <div className="tabs">
-                <button className={`tab ${activeTab === "creation" ? "active" : ""}`}
-                        onClick={() => setActiveTab("creation")}>
-                    {t("CONNEXION_CREATION.CREATION")}
-                </button>
                 <button className={`tab ${activeTab === "connexion" ? "active" : ""}`}
                         onClick={() => setActiveTab("connexion")}>
                     {t("CONNEXION_CREATION.CONNEXION")}
                 </button>
+                <button className={`tab ${activeTab === "creation" ? "active" : ""}`}
+                        onClick={() => setActiveTab("creation")}>
+                    {t("CONNEXION_CREATION.CREATION")}
+                </button>
             </div>
             <div className="tab-content">
-                {activeTab === "creation" && <Creation />}
-                {activeTab === "connexion" && <Connexion />}
+                {activeTab === "connexion" && <Connexion/>}
+                {activeTab === "creation" && <Creation/>}
             </div>
         </div>
     );

@@ -34,7 +34,7 @@ function Account() {
 					setUserInfo({username, email});
 					if (!email_verified) {
 						setNotificationMessage({
-							text: t("PROFIL.MAIL_UNVERIFIED"),
+							text: t("PROFILE.MAIL_UNVERIFIED"),
 							type: "info"
 						});
 					}
@@ -52,16 +52,18 @@ function Account() {
 
 	return (
 		<div className="accounts-page">
-			<h1 className="accounts-title">{t("PROFIL.TITLE")}</h1>
+			<h1 className="accounts-title">{t("PROFILE.TITLE")}</h1>
 			<div className="account" data-testid="Home">
 				<div className="account-information text-minecraft">
-					<p>{t("PROFIL.USERNAME")} : {userInfo.username}</p>
-					<p>{t("PROFIL.MAIL")} : {userInfo.email}</p>
+					<p>{t("PROFILE.USERNAME")} : {userInfo.username}</p>
+					<p>{t("PROFILE.MAIL")} : {userInfo.email}</p>
 				</div>
+				<ButtonsJavaEdition taille="25" title="PROFILE.MODIFY_MY_INFOS"
+									path={`/account/infomodifications?username=${userInfo.username}&email=${userInfo.email}`}/>
 			</div>
 			<div className="account-buttons">
 				<ButtonsJavaEdition taille="19" title="GLOBAL.BACK" path="/"/>
-				<ButtonsJavaEdition taille="19" title="PROFIL.DECONECT" onClick={handleLogout}/>
+				<ButtonsJavaEdition taille="19" title="PROFILE.DECONECT" onClick={handleLogout}/>
 			</div>
 			{notificationMessage && <Notification message={notificationMessage.text} type={notificationMessage.type}/>}
 		</div>
