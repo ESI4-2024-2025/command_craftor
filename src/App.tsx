@@ -10,6 +10,7 @@ import LanguageSelector from "./components/Languageselector/LanguageSelector";
 import VersionSelector from "./components/VersionSelector/VersionSelector";
 import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
+import InfoModification from "./components/UserSection/InfoModification";
 
 function App() {
 	const [version, setVersion] = useState("");
@@ -26,6 +27,7 @@ function App() {
 					<Route path="/commands/giveenchanteditems" element={<GiveEnchantedItems version={Number(version)} language={language}/>}/>
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
+					<Route path="/account/infomodifications" element={<InfoModification/>}/>
 					<Route path="/changelog" element={<Changelog/>}/>
 					<Route path="*" element={<NotFound/>}/>
 				</Routes>
