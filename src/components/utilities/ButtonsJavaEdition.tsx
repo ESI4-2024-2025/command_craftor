@@ -35,7 +35,7 @@ const ButtonsJavaEdition: React.FC<McButtonsProps> = ({taille, title, path, onCl
 		: {width: `${taille}vw`};
 
 	return (
-		<div className="McButtons" data-testid="ButtonsJavaEdition" onClick={handleClick} style={buttonStyle}>
+		<div className="McButtons" onClick={handleClick} style={buttonStyle}>
 			<div className={buttonClass}>
 				<div className="title">{t(title)}</div>
 			</div>
