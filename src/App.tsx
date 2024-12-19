@@ -5,10 +5,12 @@ import Commands from "./components/Commands";
 import Home from "./Home";
 import AccountCreationOrConnexion from "./components/UserSection/AccountCreationOrConnexion";
 import Account from "./components/UserSection/Account";
+import Admin from "./components/Admin/Admin";
 import Changelog from "./components/Changelog/Changelog";
 import LanguageSelector from "./components/Languageselector/LanguageSelector";
 import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
+import Forbidden from "./components/403";
 
 function App() {
 	const [language, setLanguage] = useState("");
@@ -24,6 +26,8 @@ function App() {
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
 					<Route path="/changelog" element={<Changelog/>}/>
+					<Route path="/admin" element={<Admin/>}/>
+					<Route path="/forbidden" element={<Forbidden/>}/>
 					<Route path="*" element={<NotFound/>}/>
 				</Routes>
 			</BrowserRouter>

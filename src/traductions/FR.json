@@ -7,10 +7,18 @@
     "MESSAGE": "La page que vous cherchez n'existe pas.",
     "BACK": "Retour a l'accueil"
   },
+  "403": {
+    "MESSAGE": "Vous n'êtes pas autorisé à accéder à cette page.",
+    "BACK": "Retour a l'accueil"
+  },
   "HOME": {
     "COMMANDES": "Commandes",
     "PROFIL": "Profil",
     "CHANGELOG": "Changelog"
+  },
+  "ADMIN": {
+    "TITLE": "Administration",
+    "UNWELCOME": "Cet endroit est réservé aux admins."
   },
   "CONNEXION_CREATION": {
     "CREATION": "Creation de compte",
@@ -28,7 +36,8 @@
     "MAIL": "Adresse mail",
     "PHONE": "Telephone",
     "DECONECT": "Se deconnecter",
-    "MAIL_UNVERIFIED": "Adresse mail non verifiee"
+    "MAIL_UNVERIFIED": "Adresse mail non verifiee",
+    "ADMIN": "Administration"
   },
   "COMMANDS": {
     "TITLE": "Liste Des Commandes",
