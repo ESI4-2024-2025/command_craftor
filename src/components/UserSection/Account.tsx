@@ -18,6 +18,7 @@ function Account() {
 		type: string;
 	};
 	const [notificationMessage, setNotificationMessage] = useState<NotificationMessage | null>(null);
+	const [emailVerified, setEmailVerified] = useState(true);
 	const {t} = useTranslation();
 
 	/**
@@ -40,8 +41,9 @@ function Account() {
 					setUserInfo({username, email});
 					setAdmin(admin);
 					if (!email_verified) {
+						setEmailVerified(false);
 						setNotificationMessage({
-							text: t("PROFIL.MAIL_UNVERIFIED"),
+							text: t("PROFILE.MAIL_UNVERIFIED"),
 							type: "info"
 						});
 					}
@@ -61,20 +63,42 @@ function Account() {
 		window.location.reload();
 	};
 
+	const sendVerifyEmail = async () => {
+		try {
+			const response = await axios.put(`${process.env.REACT_APP_HOST_BACK}/users/email/verify`, {email: userInfo.email});
+			setNotificationMessage({
+				text: t("PROFILE.MODIFICATION.SUCCESS"),
+				type: "success"
+			});
+		} catch (error) {
+			setNotificationMessage({
+				text: t("PROFILE.MODIFICATION.ERROR"),
+				type: "error"
+			});
+		}
+	};
+
 	return (
 		<div className="accounts-page">
-			<h1 className="accounts-title">{t("PROFIL.TITLE")}</h1>
-			<div className="account">
+			<h1 className="accounts-title">{t("PROFILE.TITLE")}</h1>
+			<div className="account" data-testid="Home">
 				<div className="account-information text-minecraft">
-					<p>{t("PROFIL.USERNAME")} : {userInfo.username}</p>
-					<p>{t("PROFIL.MAIL")} : {userInfo.email}</p>
+					<p>{t("GLOBAL.USERNAME")} : {userInfo.username}</p>
+					<p>{t("GLOBAL.MAIL")} : {userInfo.email}</p>
 					{isAdmin ? (<ButtonsJavaEdition size="20" title="PROFIL.ADMIN" path="/admin"/>) : null}
 				</div>
+				<ButtonsJavaEdition size="25" title="PROFILE.MODIFY_MY_INFOS"
+									path={`/account/infomodifications?username=${userInfo.username}&email=${userInfo.email}`}/>
+				<br/>
+				{!emailVerified && (
+					<ButtonsJavaEdition size="25" title="PROFILE.RESEND_MAIL" onClick={sendVerifyEmail}/>
+				)}
 			</div>
 			<div className="account-buttons">
 				<ButtonsJavaEdition size="19" title="GLOBAL.BACK" path="/"/>
 				<ButtonsJavaEdition size="19" title="PROFIL.DECONECT" onClick={handleLogout}/>
 			</div>
+
 			{notificationMessage && <Notification message={notificationMessage.text} type={notificationMessage.type}/>}
 		</div>
 	);

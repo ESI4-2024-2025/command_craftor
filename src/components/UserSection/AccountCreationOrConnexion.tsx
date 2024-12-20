@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 import "../../styles/AccountCreationOrConnexion.css";
 import Creation from "./Creation";

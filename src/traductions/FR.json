@@ -1,7 +1,10 @@
 {
   "GLOBAL": {
     "BACK": "Retour",
-    "LOADING": "Chargement..."
+    "LOADING": "Chargement...",
+    "USERNAME": "Nom d'utilisateur",
+    "MAIL": "Adresse mail",
+    "PASSWORD": "Mot de passe"
   },
   "404": {
     "MESSAGE": "La page que vous cherchez n'existe pas.",
@@ -39,21 +42,23 @@
   "CONNEXION_CREATION": {
     "CREATION": "Creation de compte",
     "CONNEXION": "Connexion",
-    "USERNAME": "Nom d'utilisateur",
-    "MAIL": "Adresse mail",
     "PHONE": "Telephone",
-    "PASSWORD": "Mot de passe",
     "CREATE": "Creer un compte",
     "CONNECT": "Se connecter",
     "CONNEXION_ERROR": "Erreur de connexion. Veuillez verifier vos identifiants."
   },
-  "PROFIL": {
+  "PROFILE": {
     "TITLE": "Informations de profil",
-    "USERNAME": "Nom d'utilisateur",
-    "MAIL": "Adresse mail",
-    "PHONE": "Telephone",
     "DECONECT": "Se deconnecter",
     "MAIL_UNVERIFIED": "Adresse mail non verifiee",
+    "MODIFY_MY_INFOS": "Modifier mes informations",
+    "MODIFICATION": {
+      "TITLE": "Modifier mes informations",
+      "SEND_EMAIL": "Envoyer un e-mail",
+      "MODIFY": "Modifier",
+      "EMAIL_SENT": "E-mail correctement envoye",
+      "EMAIL_ERROR": "Oops, une erreur est survenue"
+    },
     "ADMIN": "Administration"
   },
   "COMMANDS": {
