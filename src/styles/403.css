@@ -1,0 +1,16 @@
+.forbidden-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	text-align: center;
+	font-family: "Minecraft", sans-serif;
+	color : #fff;
+	font-size: 2rem;
+	font-weight: normal;
+}
+
+.forbidden-container h1 {
+	margin-bottom: 20px;
+}

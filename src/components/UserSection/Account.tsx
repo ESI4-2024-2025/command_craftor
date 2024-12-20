@@ -12,6 +12,7 @@ function Account() {
 		username: "",
 		email: "",
 	});
+	const [isAdmin, setAdmin] = useState(false);
 	type NotificationMessage = {
 		text: string;
 		type: string;
@@ -30,8 +31,9 @@ function Account() {
 				}
 			})
 				.then(response => {
-					const {username, email, email_verified} = response.data;
+					const {username, email, email_verified, admin} = response.data;
 					setUserInfo({username, email});
+					setAdmin(admin);
 					if (!email_verified) {
 						setNotificationMessage({
 							text: t("PROFIL.MAIL_UNVERIFIED"),
@@ -57,6 +59,7 @@ function Account() {
 				<div className="account-information text-minecraft">
 					<p>{t("PROFIL.USERNAME")} : {userInfo.username}</p>
 					<p>{t("PROFIL.MAIL")} : {userInfo.email}</p>
+					{ isAdmin ? (<ButtonsJavaEdition taille="20" title="PROFIL.ADMIN" path="/admin"/>) : null }
 				</div>
 			</div>
 			<div className="account-buttons">

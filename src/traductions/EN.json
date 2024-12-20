@@ -7,10 +7,18 @@
     "MESSAGE": "The page you are looking for does not exist.",
     "BACK": "Back to home"
   },
+  "403": {
+    "MESSAGE": "You are not allowed to access this page.",
+    "BACK": "Back to home"
+  },
   "HOME": {
     "COMMANDES": "Commands",
     "PROFIL": "Profile",
     "CHANGELOG": "Changelog"
+  },
+  "ADMIN": {
+    "TITLE": "Administration",
+    "UNWELCOME": "This place is for admins only."
   },
   "CONNEXION_CREATION": {
     "CREATION": "Account Creation",
@@ -28,7 +36,8 @@
     "MAIL": "Email Address",
     "PHONE": "Phone",
     "DECONECT": "Logout",
-    "MAIL_UNVERIFIED": "Email address not verified"
+    "MAIL_UNVERIFIED": "Email address not verified",
+    "ADMIN": "Administration"
   },
   "COMMANDS": {
     "TITLE": "Command List",
