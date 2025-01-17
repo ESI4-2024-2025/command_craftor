@@ -56,6 +56,9 @@
       "VERSION_NOT_SUPPORTED": "Cette version n'est pas supportee."
     }
   },
+  "SUPPORT": {
+    "TICKET_BUTTON": "Support"
+  },
   "MINECRAFT": {
     "ITEMS": {
       "HELMET": "Casque",

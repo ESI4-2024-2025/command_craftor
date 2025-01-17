@@ -1,0 +1,6 @@
+.new-ticket-button {
+    position: fixed;
+    right:    0.5vw;
+    bottom:   1vh;
+    z-index:   1000;
+}
