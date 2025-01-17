@@ -1,9 +1,9 @@
 import "../../styles/Support.css"
-import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
-import Notification from "../utilities/Notification";
 import axios from "axios";
+import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
+import Notification from "../utilities/Notification";
 
 const NewTicket = () => {
     const [email, setEmail] = useState("");
