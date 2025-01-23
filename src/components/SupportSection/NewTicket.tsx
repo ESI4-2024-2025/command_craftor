@@ -43,6 +43,7 @@ const NewTicket = () => {
 
     return (
         <div className="new-ticket-page">
+            <h1 className="accounts-title">{t("SUPPORT.TITLE")}</h1>
             <div className="new-ticket">
                 <div className="new-ticket-informations text-minecraft">
                     <form onSubmit={handleSubmit}>
@@ -53,7 +54,7 @@ const NewTicket = () => {
                                 <input
                                     type="email"
                                     id="email"
-                                    className="minecraft-input fixed-size new-ticket-input"
+                                    className="minecraft-input new-ticket-input"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
@@ -61,11 +62,12 @@ const NewTicket = () => {
                         </div>
                         <div className="new-ticket-input-block">
                             <div className="new-ticket-input-wrapper">
-                                <label htmlFor="title" className="new-ticket-label">{t("SUPPORT.NEW_TICKET_TITLE")}</label>
+                                <label htmlFor="title"
+                                       className="new-ticket-label">{t("SUPPORT.NEW_TICKET_TITLE")}</label>
                                 <input
                                     type="text"
                                     id="title"
-                                    className="minecraft-input fixed-size new-ticket-input"
+                                    className="minecraft-input new-ticket-input"
                                     value={title}
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
@@ -75,10 +77,11 @@ const NewTicket = () => {
                             <div className="new-ticket-input-wrapper">
                                 <label htmlFor="body"
                                        className="new-ticket-label">{t("SUPPORT.NEW_TICKET_BODY")}</label>
-                                <input
-                                    type="text"
+                                <textarea
                                     id="body"
-                                    className="minecraft-input fixed-size new-ticket-input"
+                                    cols={40}
+                                    rows={5}
+                                    className="minecraft-input new-ticket-description"
                                     value={body}
                                     onChange={(e) => setBody(e.target.value)}
                                 />
@@ -95,7 +98,7 @@ const NewTicket = () => {
                 </div>
             </div>
             <div className="new-ticket-buttons">
-                <ButtonsJavaEdition taille="19" title="GLOBAL.BACK" path="/"/>
+            <ButtonsJavaEdition taille="19" title="GLOBAL.BACK" path="/"/>
             </div>
             {notificationMessage && <Notification message={notificationMessage.text} type={notificationMessage.type}/>}
         </div>

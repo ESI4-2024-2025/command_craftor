@@ -58,6 +58,7 @@
   },
   "SUPPORT": {
     "TICKET_BUTTON": "Support",
+    "TITLE": "Support",
     "NEW_TICKET_SEND": "Envoyer la demande",
     "TICKET_SENT": "Votre demande a bien ete enregistree. Vous pouvez suivre vos demandes par mail.",
     "TICKET_CREATION_ERROR": "Votre demande n'a pas pu être enregistree. Veuillez reessayer ulterieurement.",
