@@ -58,7 +58,13 @@
     }
   },
   "SUPPORT": {
-    "TICKET_BUTTON": "Support"
+    "TICKET_BUTTON": "Support",
+    "NEW_TICKET_SEND": "Send request",
+    "TICKET_SENT": "Your request has been registered. You can follow your requests in your mailbox.",
+    "TICKET_CREATION_ERROR": "Your request couldn't be registered. Try again soon.",
+    "EMAIL": "Email",
+    "NEW_TICKET_TITLE": "Subject",
+    "NEW_TICKET_BODY": "Description"
   },
   "MINECRAFT": {
     "ITEMS": {

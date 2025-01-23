@@ -12,7 +12,7 @@ import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
 import Forbidden from "./components/403";
 import ProtectedRoute from "./components/utilities/ProtectedRoute";
-import {NewTicket} from "./components/SupportSection/NewTicket";
+import NewTicket from "./components/SupportSection/NewTicket";
 
 function App() {
 	const [language, setLanguage] = useState("");
