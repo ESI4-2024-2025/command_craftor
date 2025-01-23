@@ -4,7 +4,6 @@ import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import Notification from "../utilities/Notification";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 
 const NewTicket = () => {
     const [email, setEmail] = useState("");
