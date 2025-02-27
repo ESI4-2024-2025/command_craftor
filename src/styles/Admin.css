@@ -26,9 +26,12 @@
 }
 
 .admin-menu {
-	display:        flex;
-	flex-direction: column;
-	align-items:    center;
+	height:     70vh;
+	overflow-y: auto;
+
+	> * {
+		margin: 3vh auto;
+	}
 }
 
 .admin-buttons {

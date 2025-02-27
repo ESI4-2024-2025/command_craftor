@@ -13,6 +13,7 @@ import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItem
 import Forbidden from "./components/403";
 import ProtectedRoute from "./components/utilities/ProtectedRoute";
 import NewTicket from "./components/SupportSection/NewTicket";
+import TicketsMonitoring from "./components/Admin/TicketsMonitoring";
 
 function App() {
 	const [language, setLanguage] = useState("");
@@ -32,6 +33,10 @@ function App() {
 					<Route path="/admin" element={
 						<ProtectedRoute role='admin'>
 							<Admin/>
+						</ProtectedRoute>
+					}/>
+					<Route path="/admin/tickets" element={
+						<ProtectedRoute role='admin'>
 						</ProtectedRoute>
 					}/>
 					<Route path="/forbidden" element={<Forbidden/>}/>

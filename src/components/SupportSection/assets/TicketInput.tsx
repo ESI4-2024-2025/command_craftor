@@ -13,12 +13,13 @@ const TicketInput = (ticket: TicketContent, index: number) => {
 
     function showOrHideSubMenu()
     {
+        
     }
 
     return (
         <>
             <input className="minecraft-input listed-ticket-input" id={`input${index}`} type="text" value={ticket.title} disabled/>
-            <ButtonsJavaEdition taille="square" title="+" onClick={() => showOrHideSubMenu()}/>
+            <ButtonsJavaEdition taille="square" title="v" onClick={() => showOrHideSubMenu()}/>
         </>
     );
 };

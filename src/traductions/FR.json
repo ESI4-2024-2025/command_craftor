@@ -17,7 +17,8 @@
     "CHANGELOG": "Changelog"
   },
   "ADMIN": {
-    "TITLE": "Administration"
+    "TITLE": "Administration",
+    "TICKETS": "Tickets"
   },
   "CONNEXION_CREATION": {
     "CREATION": "Creation de compte",

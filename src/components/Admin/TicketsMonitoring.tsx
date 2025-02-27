@@ -3,7 +3,7 @@ import React from "react";
 import "../../styles/Admin.css";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 
-function Admin() {
+function TicketsMonitoring() {
     const {t} = useTranslation();
 
     return (
@@ -21,4 +21,4 @@ function Admin() {
     );
 }
 
-export default Admin;
+export default TicketsMonitoring;

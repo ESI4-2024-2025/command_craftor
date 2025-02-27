@@ -18,7 +18,7 @@
   },
   "ADMIN": {
     "TITLE": "Administration",
-    "UNWELCOME": "This place is for admins only."
+    "TICKETS": "Tickets"
   },
   "CONNEXION_CREATION": {
     "CREATION": "Account Creation",
