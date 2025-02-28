@@ -4,11 +4,12 @@ import "../../styles/Admin.css";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import TicketInput, {TicketContent} from "../SupportSection/assets/TicketInput";
 
 function TicketsMonitoring() {
     const {t} = useTranslation();
     const navigate = useNavigate();
-    let tickets = [];
+    let tickets: TicketContent[] = [];
 
     useEffect(() => {
         const token = localStorage.getItem("accessToken");
@@ -31,12 +32,28 @@ function TicketsMonitoring() {
         }
     }, []);
 
+    function renderTicketInput(ticket: TicketContent) {
+        return (
+            <TicketInput
+                title={ticket.title}
+                email={ticket.email}
+                status={ticket.status}
+            ></TicketInput>
+        );
+    }
+
     return (
         <div className="admin-page">
-            <h1 className="admin-title">{"AAAAAAAAAAA"}</h1>
+            <h1 className="admin-title">{t("ADMIN.TICKETS")}</h1>
             <div className="admin">
                 <div className="admin-menu">
-                    <ButtonsJavaEdition taille="35" title={t("ADMIN.TICKETS")} path="/admin/tickets"/>
+                    {tickets.map((ticket: TicketContent) => (
+                        <TicketInput
+                            title={ticket.title}
+                            email={ticket.email}
+                            status={ticket.status}
+                        ></TicketInput>
+                    ))}
                 </div>
             </div>
             <div className="admin-buttons">

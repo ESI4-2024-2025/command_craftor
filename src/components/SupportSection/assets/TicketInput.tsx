@@ -2,7 +2,7 @@ import {useTranslation} from "react-i18next";
 import ButtonsJavaEdition from "../../utilities/ButtonsJavaEdition";
 import React from "react";
 
-type TicketContent = {
+export type TicketContent = {
     title: string,
     email: string,
     status: string
@@ -13,7 +13,7 @@ const TicketInput = (ticket: TicketContent, index: number) => {
 
     function showOrHideSubMenu()
     {
-        
+
     }
 
     return (
