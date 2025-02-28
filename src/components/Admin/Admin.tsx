@@ -11,11 +11,11 @@ function Admin() {
             <h1 className="admin-title">{t("ADMIN.TITLE")}</h1>
             <div className="admin">
                 <div className="admin-menu">
-                    <ButtonsJavaEdition taille="35" title="ADMIN.TICKETS" path="/admin/tickets"/>
+                    <ButtonsJavaEdition taille="35" title={t("ADMIN.TICKETS")} path="/admin/tickets"/>
                 </div>
             </div>
             <div className="admin-buttons">
-                <ButtonsJavaEdition taille="40" title="GLOBAL.BACK" path="goback"/>
+                <ButtonsJavaEdition taille="40" title={t("GLOBAL.BACK")} path="goback"/>
             </div>
         </div>
     );

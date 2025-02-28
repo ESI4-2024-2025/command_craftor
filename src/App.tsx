@@ -37,6 +37,7 @@ function App() {
 					}/>
 					<Route path="/admin/tickets" element={
 						<ProtectedRoute role='admin'>
+							<TicketsMonitoring/>
 						</ProtectedRoute>
 					}/>
 					<Route path="/forbidden" element={<Forbidden/>}/>
