@@ -1,15 +1,24 @@
 import {useTranslation} from "react-i18next";
 import ButtonsJavaEdition from "../../utilities/ButtonsJavaEdition";
-import React from "react";
+import React, {useEffect} from "react";
 
 export type TicketContent = {
+    id: string;
     title: string,
     email: string,
     status: string
 };
 
-const TicketInput = (ticket: TicketContent, index: number) => {
+type TicketElement = {
+    ticket: TicketContent,
+    index: number
+}
+
+const TicketInput = (ticketElement: TicketElement) => {
     const {t} = useTranslation();
+
+    useEffect(() => {
+    }, []);
 
     function showOrHideSubMenu()
     {
@@ -18,7 +27,7 @@ const TicketInput = (ticket: TicketContent, index: number) => {
 
     return (
         <>
-            <input className="minecraft-input listed-ticket-input" id={`input${index}`} type="text" value={ticket.title} disabled/>
+            <input className="minecraft-input listed-ticket-input" id={`input${ticketElement.index}`} type="text" value={ticketElement.ticket.title} disabled/>
             <ButtonsJavaEdition taille="square" title="v" onClick={() => showOrHideSubMenu()}/>
         </>
     );
