@@ -1,4 +1,4 @@
-import {useTranslation} from "react-i18next";
+//import {useTranslation} from "react-i18next";
 import ButtonsJavaEdition from "../../utilities/ButtonsJavaEdition";
 import React, {useEffect} from "react";
 
@@ -15,7 +15,7 @@ type TicketElement = {
 }
 
 const TicketInput = (ticketElement: TicketElement) => {
-    const {t} = useTranslation();
+    //const {t} = useTranslation();
 
     useEffect(() => {
     }, []);

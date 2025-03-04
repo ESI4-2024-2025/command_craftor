@@ -1,5 +1,5 @@
 import {useTranslation} from "react-i18next";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "../../styles/Admin.css";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 import axios from "axios";
@@ -9,14 +9,17 @@ import TicketInput, {TicketContent} from "../SupportSection/assets/TicketInput";
 function TicketsMonitoring() {
     const {t} = useTranslation();
     const navigate = useNavigate();
-    let [tickets, setTickets] = useState(new Array<TicketContent>());
+    const [tickets, setTickets] = useState(new Array<TicketContent>());
+    const isFirstLoad = useRef(true);
 
     function isTicketRegistered(ticket: TicketContent): boolean {
-        console.log('filter', ticket);
         return tickets.filter((item) => item.id === ticket.id).length > 0;
     }
 
     useEffect(() => {
+        if (!isFirstLoad.current) return;
+        isFirstLoad.current = false;
+
         const token = localStorage.getItem("accessToken");
         if (!token) {
             navigate("/forbidden");
@@ -26,6 +29,7 @@ function TicketsMonitoring() {
                     "x-access-token": token
                 }
             }).then(response => {
+                const ticketsList: TicketContent[] = [];
                 response.data.map((element: any) => {
                     const ticketContent = {
                         id: element._id,
@@ -38,23 +42,27 @@ function TicketsMonitoring() {
                         return;
                     }
 
-                    setTickets(tickets => [...tickets, ticketContent]);
+                    ticketsList.push(ticketContent);
                 })
+
+                setTickets(tickets => [...tickets, ...ticketsList]);
             }).catch(reason => console.error(reason));
         }
-    }, []);
+    }, [tickets]);
 
     return (
         <div className="admin-page">
             <h1 className="admin-title">{t("ADMIN.TICKETS")}</h1>
             <div className="admin">
                 <div className="admin-menu">
-                    {tickets.map((ticket: TicketContent, index: number) => (
-                        <TicketInput
-                            ticket={ticket}
-                            index={index}
-                        ></TicketInput>
-                    ))}
+                    <ul className="admin-menu-list">
+                        {tickets.map((ticket: TicketContent, index: number) => (
+                            <li key={index}><TicketInput
+                                ticket={ticket}
+                                index={index}
+                            ></TicketInput></li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             <div className="admin-buttons">

@@ -39,3 +39,8 @@
 	display: flex;
 	gap: 2vw;
 }
+
+.admin-menu-list li {
+	display: flex;
+	margin-bottom: 10px;
+}
