@@ -20,8 +20,8 @@
 	height:           80vh;
 	margin:           1vh 0;
 	display:          flex;
-	flex-direction:   column;
-	justify-content:  center;
+	flex-direction:   row;
+	justify-content:  space-evenly;
 	align-items:      center;
 }
 
@@ -40,7 +40,64 @@
 	gap: 2vw;
 }
 
-.admin-menu-list li {
+.admin-tickets-page {
+	display:         flex;
+	flex-direction:  column;
+	justify-content: center;
+	margin:          0 auto;
+	width:           80vw;
+}
+
+.admin-tickets-list {
+	height:     70vh;
+	overflow-y: auto;
+
+	> * {
+		margin: 3vh auto;
+	}
+}
+
+.admin-ticket-display {
+	background-color: #000000;
+	border:           3px solid white;
+	box-shadow:       none;
+	color:            #FFFFFF;
+	font-family:      'Minecraft', sans-serif;
+	font-size:        1.5em;
+	padding:          20px;
+	text-align:       left;
+	height:           65vh;
+	width:      	  50%;
+}
+
+.admin-ticket-element {
 	display: flex;
-	margin-bottom: 10px;
+	align-content: center;
+}
+
+.admin-ticket-elements .McButtons {
+	display: inline-block;
+}
+
+.admin-ticket-detail {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: left;
+
+	> * {
+		margin-right:  2vh;
+	}
+}
+
+.admin-ticket-body {
+	display: flex;
+	flex-direction: column;
+	justify-items: start;
+	margin-top:  10px;
+
+	> p {
+		line-break: auto;
+		word-wrap: break-word;
+	}
 }

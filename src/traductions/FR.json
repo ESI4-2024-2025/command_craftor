@@ -18,7 +18,13 @@
   },
   "ADMIN": {
     "TITLE": "Administration",
-    "TICKETS": "Tickets"
+    "TICKETS": {
+      "TITLE": "Tickets",
+      "SUBJECT": "Sujet",
+      "EMAIL": "Email",
+      "STATUS": "Statut",
+      "BODY": "Description"
+    }
   },
   "CONNEXION_CREATION": {
     "CREATION": "Creation de compte",
