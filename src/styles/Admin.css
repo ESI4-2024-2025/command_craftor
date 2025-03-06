@@ -37,7 +37,7 @@
 .admin-buttons {
 	height:  5vh;
 	display: flex;
-	gap: 2vw;
+	gap:     2vw;
 }
 
 .admin-tickets-page {
@@ -71,7 +71,7 @@
 }
 
 .admin-ticket-element {
-	display: flex;
+	display:       flex;
 	align-content: center;
 }
 
@@ -80,24 +80,34 @@
 }
 
 .admin-ticket-detail {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: left;
+	display:          flex;
+	flex-direction:   row;
+	align-items:      center;
+	justify-content:  left;
 
 	> * {
-		margin-right:  2vh;
+		margin-right: 2vh;
 	}
 }
 
 .admin-ticket-body {
-	display: flex;
+	display:        flex;
 	flex-direction: column;
-	justify-items: start;
-	margin-top:  10px;
+	justify-items:  start;
+	margin-top:     10px;
 
-	> p {
-		line-break: auto;
-		word-wrap: break-word;
+	> textarea {
+		width:      100%;
+		border:     none;
+		font-size:  1em;
+		resize:     none;
+		margin:     auto;
+		text-align: left;
 	}
+}
+
+.admin-tickets-buttons {
+	display:    flex;
+	position:   relative;
+	margin-top: 2vh;
 }

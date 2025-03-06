@@ -23,7 +23,9 @@
       "SUBJECT": "Subject",
       "EMAIL": "Email",
       "STATUS": "Status",
-      "BODY": "Description"
+      "BODY": "Description",
+      "CHANGE_STATUS": "Change status",
+      "ARCHIVE": "Archive"
     }
   },
   "CONNEXION_CREATION": {

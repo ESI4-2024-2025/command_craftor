@@ -19,6 +19,7 @@ function TicketsMonitoring() {
     const [tickets, setTickets] = useState(new Array<TicketContent>());
     const isFirstLoad = useRef(true);
     const ticketDetailsContainerRef = createRef<HTMLDivElement>();
+    const [selectedId, setSelectedId] = useState("");
     const [selectedEmail, setSelectedEmail] = useState("");
     const [selectedStatus, setSelectedStatus] = useState("");
     const [selectedSubject, setSelectedSubject] = useState("");
@@ -35,40 +36,70 @@ function TicketsMonitoring() {
         const token = localStorage.getItem("accessToken");
         if (!token) {
             navigate("/forbidden");
-        } else {
-            axios.get(`${process.env.REACT_APP_HOST_BACK}/tickets`, {
-                headers: {
-                    "x-access-token": token
-                }
-            }).then(response => {
-                const ticketsList: TicketContent[] = [];
-                response.data.map((element: any) => {
-                    const ticketContent = {
-                        id: element._id,
-                        title: element.titre,
-                        email: element.email,
-                        status: element.statut,
-                        body: element.corps,
-                    };
-
-                    if (isTicketRegistered(ticketContent) || element.archived) {
-                        return;
-                    }
-
-                    ticketsList.push(ticketContent);
-                })
-
-                setTickets(tickets => [...tickets, ...ticketsList]);
-            }).catch(reason => console.error(reason));
+            return;
         }
+
+        axios.get(`${process.env.REACT_APP_HOST_BACK}/tickets`, {
+            headers: {
+                "x-access-token": token
+            }
+        }).then(response => {
+            const ticketsList: TicketContent[] = [];
+
+            response.data.map((element: any) => {
+                const ticketContent = {
+                    id: element._id,
+                    title: element.titre,
+                    email: element.email,
+                    status: element.statut,
+                    body: element.corps,
+                };
+
+                if (isTicketRegistered(ticketContent) || element.archived) {
+                    return;
+                }
+
+                ticketsList.push(ticketContent);
+            })
+
+            setTickets(tickets => [...tickets, ...ticketsList]);
+        }).catch(reason => console.error(reason));
     }, [tickets]);
 
+    function hideTicketsDetails() {
+        setSelectedId("");
+        setSelectedEmail("");
+        setSelectedStatus("");
+        setSelectedSubject("");
+        setSelectedBody("");
+        ticketDetailsContainerRef.current?.setAttribute('hidden', 'hidden');
+    }
+
     function showTicketDetails(ticket: TicketContent) {
+        setSelectedId(ticket.id);
         setSelectedEmail(ticket.email);
         setSelectedStatus(ticket.status);
         setSelectedSubject(ticket.title);
         setSelectedBody(ticket.body);
         ticketDetailsContainerRef.current?.removeAttribute("hidden");
+    }
+
+    function archiveTicket() {
+        const token = localStorage.getItem("accessToken");
+
+        if (!token) {
+            navigate("/forbidden");
+            return;
+        }
+
+        axios.put(`${process.env.REACT_APP_HOST_BACK}/tickets/${selectedId}/archive`, {
+            headers: {
+                "x-access-token": token
+            }
+        }).then(() => {
+            setTickets([...tickets.filter((ticket) => selectedId !== ticket.id)])
+            hideTicketsDetails();
+        }).catch(reason => console.error(reason));
     }
 
     return (
@@ -97,7 +128,18 @@ function TicketsMonitoring() {
                     </div>
                     <div className="admin-ticket-body">
                         <label htmlFor="ticket-body">{t("ADMIN.TICKETS.BODY") + ':'}</label>
-                        <p id="ticket-body">{selectedBody}</p>
+                        <textarea
+                            id="ticket-body"
+                            cols={200}
+                            rows={8}
+                            className="minecraft-input new-ticket-description"
+                            readOnly={true}
+                            value={selectedBody}
+                        />
+                    </div>
+                    <div className="admin-tickets-buttons">
+                        <ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.CHANGE_STATUS")}/>
+                        <ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.ARCHIVE")} onClick={archiveTicket}/>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ function Admin() {
             <h1 className="admin-title">{t("ADMIN.TITLE")}</h1>
             <div className="admin">
                 <div className="admin-menu">
-                    <ButtonsJavaEdition taille="35" title={t("ADMIN.TICKETS")} path="/admin/tickets"/>
+                    <ButtonsJavaEdition taille="35" title={t("ADMIN.TICKETS.TITLE")} path="/admin/tickets"/>
                 </div>
             </div>
             <div className="admin-buttons">

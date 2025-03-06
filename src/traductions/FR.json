@@ -23,7 +23,9 @@
       "SUBJECT": "Sujet",
       "EMAIL": "Email",
       "STATUS": "Statut",
-      "BODY": "Description"
+      "BODY": "Description",
+      "CHANGE_STATUS": "Changer le statut",
+      "ARCHIVE": "Archiver"
     }
   },
   "CONNEXION_CREATION": {
