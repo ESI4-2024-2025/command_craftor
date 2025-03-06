@@ -19,12 +19,11 @@ const NewTicket = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_HOST_BACK}/tickets`, {
+            await axios.post(`${process.env.REACT_APP_HOST_BACK}/tickets`, {
                 titre: title,
                 corps: body,
                 email: email
             });
-            localStorage.setItem("accessToken", response.data.accessToken);
             setNotificationMessage({
                 text: t("SUPPORT.TICKET_SENT"),
                 type: "info"
