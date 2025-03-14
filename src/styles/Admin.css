@@ -68,6 +68,7 @@
 	text-align:       left;
 	height:           65vh;
 	width:      	  50%;
+	position:         relative;
 }
 
 .admin-ticket-element {
@@ -77,6 +78,11 @@
 
 .admin-ticket-elements .McButtons {
 	display: inline-block;
+}
+
+.ticket-margin-resize {
+	margin-top:    5px !important;
+	margin-bottom: 5px !important;
 }
 
 .admin-ticket-detail {
@@ -107,7 +113,7 @@
 }
 
 .admin-tickets-buttons {
-	display:    flex;
-	position:   relative;
-	margin-top: 2vh;
+	display:  flex;
+	position: absolute;
+	bottom:   20px;
 }

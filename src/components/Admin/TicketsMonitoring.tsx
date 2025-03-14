@@ -5,20 +5,29 @@ import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-export type TicketContent = {
-    _id: string;
-    titre: string,
-    email: string,
+type TicketContent = {
+    _id: string
+    titre: string
+    email: string
     statut: string
     corps: string
+    createdAt: Date
     archived: boolean
 };
+
+enum TicketStatus {
+    EN_ATTENTE = 'En Attente',
+    EN_COURS = 'En Cours',
+    FINI = 'Fini',
+}
 
 function TicketsMonitoring() {
     const {t} = useTranslation();
     const navigate = useNavigate();
     const [tickets, setTickets] = useState(new Array<TicketContent>());
     const [selectedTicket, setSelectedTicket] = useState<TicketContent|null>(null);
+    const [firstStatus, setFirstStatus] = useState('');
+    const [secondStatus, setSecondStatus] = useState('');
     const isFirstLoad = useRef(true);
     const ticketDetailsContainerRef = createRef<HTMLDivElement>();
 
@@ -50,6 +59,7 @@ function TicketsMonitoring() {
                     email: element.email,
                     statut: element.statut,
                     corps: element.corps,
+                    createdAt: new Date(element.createdAt),
                     archived: element.archived,
                 };
 
@@ -60,12 +70,22 @@ function TicketsMonitoring() {
                 ticketsList.push(ticketContent);
             })
 
+            ticketsList.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
             setTickets(tickets => [...tickets, ...ticketsList]);
         }).catch(reason => console.error(reason));
     }, [tickets]);
 
+    function setStatus(status: string|undefined|null) {
+        if (!status) return;
+
+        const statuses = Object.keys(TicketStatus).filter(s => s !== status);
+        setFirstStatus(statuses[0]);
+        setSecondStatus(statuses[1]);
+    }
+
     function showTicketDetails(ticket: TicketContent|null) {
         setSelectedTicket(ticket);
+        setStatus(ticket?.statut);
     }
 
     function archiveTicket() {
@@ -78,6 +98,7 @@ function TicketsMonitoring() {
             return;
         }
 
+        console.log(selectedTicket);
         axios.put(`${process.env.REACT_APP_HOST_BACK}/tickets/${selectedTicket._id}/archive`, {
             headers: {
                 "x-access-token": token
@@ -85,10 +106,11 @@ function TicketsMonitoring() {
         }).then(() => {
             setTickets([...tickets.filter((ticket) => selectedTicket._id !== ticket._id)])
             showTicketDetails(null);
+            console.log(selectedTicket);
         }).catch(reason => console.error(reason));
     }
 
-    function changeTicketStatus() {
+    function changeTicketStatus(status: string) {
         if (selectedTicket === null) return;
 
         const token = localStorage.getItem("accessToken");
@@ -99,17 +121,17 @@ function TicketsMonitoring() {
         }
 
         axios.put(`${process.env.REACT_APP_HOST_BACK}/tickets/${selectedTicket._id}/statut`, {
+            statut: TicketStatus[status as keyof typeof TicketStatus]
+        }, {
             headers: {
                 "x-access-token": token
             },
-            body: {
-                statut: ''
-            }
         }).then(() => {
             setSelectedTicket({
                 ...selectedTicket,
-                statut: '',
+                statut: status,
             });
+            setStatus(status);
         }).catch(reason => console.error(reason));
     }
 
@@ -126,16 +148,20 @@ function TicketsMonitoring() {
                 </div>
                 <div ref={ticketDetailsContainerRef} className="admin-ticket-display" hidden={!selectedTicket} >
                     <div className="admin-ticket-detail">
+                        <label htmlFor="ticket-date">{t("ADMIN.TICKETS.DATE") + ':'}</label>
+                        <p className="ticket-margin-resize" id="ticket-date">{selectedTicket?.createdAt?.toLocaleString('fr-FR') ?? null}</p>
+                    </div>
+                    <div className="admin-ticket-detail">
                         <label htmlFor="ticket-email">{t("ADMIN.TICKETS.EMAIL") + ':'}</label>
-                        <p id="ticket-email">{selectedTicket?.email}</p>
+                        <p className="ticket-margin-resize" id="ticket-email">{selectedTicket?.email}</p>
                     </div>
                     <div className="admin-ticket-detail">
                         <label htmlFor="ticket-status">{t("ADMIN.TICKETS.STATUS") + ':'}</label>
-                        <p id="ticket-status">{selectedTicket?.statut}</p>
+                        <p className="ticket-margin-resize" id="ticket-status">{t("ADMIN.TICKETS.STATUSES." + (selectedTicket?.archived ? 'ARCHIVED' : selectedTicket?.statut))}</p>
                     </div>
                     <div className="admin-ticket-detail">
                         <label htmlFor="ticket-title">{t("ADMIN.TICKETS.SUBJECT") + ':'}</label>
-                        <p id="ticket-title">{selectedTicket?.titre}</p>
+                        <p className="ticket-margin-resize" id="ticket-title">{selectedTicket?.titre}</p>
                     </div>
                     <div className="admin-ticket-body">
                         <label htmlFor="ticket-body">{t("ADMIN.TICKETS.BODY") + ':'}</label>
@@ -149,8 +175,12 @@ function TicketsMonitoring() {
                         />
                     </div>
                     <div className="admin-tickets-buttons">
-                        <ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.CHANGE_STATUS")} onClick={changeTicketStatus}/>
-                        <ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.ARCHIVE")} onClick={archiveTicket}/>
+                        {selectedTicket?.statut !== 'FINI' && !selectedTicket?.archived ? (<>
+                            <ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.STATUSES." + firstStatus)} onClick={() => changeTicketStatus(firstStatus)}/>
+                            <ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.STATUSES." + secondStatus)} onClick={() => changeTicketStatus(secondStatus)}/>
+                        </>) : selectedTicket?.statut === 'FINI' && !selectedTicket?.archived ? (<>
+                            <ButtonsJavaEdition taille="40" title={t("ADMIN.TICKETS.ARCHIVE")} onClick={archiveTicket}/>
+                        </>) : (<></>)}
                     </div>
                 </div>
             </div>

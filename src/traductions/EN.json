@@ -20,12 +20,20 @@
     "TITLE": "Administration",
     "TICKETS": {
       "TITLE": "Tickets",
+      "DATE": "Creation date",
       "SUBJECT": "Subject",
       "EMAIL": "Email",
       "STATUS": "Status",
       "BODY": "Description",
       "CHANGE_STATUS": "Change status",
-      "ARCHIVE": "Archive"
+      "ARCHIVE": "Archive",
+      "STATUSES": {
+        "": "",
+        "ARCHIVED": "Archived",
+        "EN_ATTENTE": "Pending",
+        "EN_COURS": "In progress",
+        "FINI": "Done"
+      }
     }
   },
   "CONNEXION_CREATION": {

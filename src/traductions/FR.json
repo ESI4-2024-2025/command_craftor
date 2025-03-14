@@ -20,12 +20,20 @@
     "TITLE": "Administration",
     "TICKETS": {
       "TITLE": "Tickets",
+      "DATE": "Date de création",
       "SUBJECT": "Sujet",
       "EMAIL": "Email",
       "STATUS": "Statut",
       "BODY": "Description",
       "CHANGE_STATUS": "Changer le statut",
-      "ARCHIVE": "Archiver"
+      "ARCHIVE": "Archiver",
+      "STATUSES": {
+        "": "",
+        "ARCHIVED": "Archivé",
+        "EN_ATTENTE": "En attente",
+        "EN_COURS": "En cours",
+        "FINI": "Fini"
+      }
     }
   },
   "CONNEXION_CREATION": {
