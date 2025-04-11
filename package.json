@@ -32,7 +32,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix"
+    "lint:fix": "eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
+    "deploy": "rm -rf /var/www/commandcraftor.ebasson.fr/* && cp -r build/* /var/www/commandcraftor.ebasson.fr/",
+    "update": "git fetch --all && git reset --hard origin/main && npm install",
+    "updateDeploy": "npm run update && npm run build && npm run deploy",
+    "init": "mkdir -p /var/www/commandcraftor.ebasson.fr"
   },
   "eslintConfig": {
     "extends": [
