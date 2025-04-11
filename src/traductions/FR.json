@@ -17,7 +17,24 @@
     "CHANGELOG": "Changelog"
   },
   "ADMIN": {
-    "TITLE": "Administration"
+    "TITLE": "Administration",
+    "TICKETS": {
+      "TITLE": "Tickets",
+      "DATE": "Date de création",
+      "SUBJECT": "Sujet",
+      "EMAIL": "Email",
+      "STATUS": "Statut",
+      "BODY": "Description",
+      "CHANGE_STATUS": "Changer le statut",
+      "ARCHIVE": "Archiver",
+      "STATUSES": {
+        "": "",
+        "ARCHIVED": "Archivé",
+        "EN_ATTENTE": "En attente",
+        "EN_COURS": "En cours",
+        "FINI": "Fini"
+      }
+    }
   },
   "CONNEXION_CREATION": {
     "CREATION": "Creation de compte",
@@ -55,6 +72,16 @@
       "MATERIAL_AND_ITEM": "Objet et materiau non selectionnes.",
       "VERSION_NOT_SUPPORTED": "Cette version n'est pas supportee."
     }
+  },
+  "SUPPORT": {
+    "TICKET_BUTTON": "Support",
+    "TITLE": "Support",
+    "NEW_TICKET_SEND": "Envoyer la demande",
+    "TICKET_SENT": "Votre demande a bien ete enregistree. Vous pouvez suivre vos demandes par mail.",
+    "TICKET_CREATION_ERROR": "Votre demande n'a pas pu être enregistree. Veuillez reessayer ulterieurement.",
+    "EMAIL": "Email",
+    "NEW_TICKET_TITLE": "Sujet",
+    "NEW_TICKET_BODY": "Description"
   },
   "MINECRAFT": {
     "ITEMS": {

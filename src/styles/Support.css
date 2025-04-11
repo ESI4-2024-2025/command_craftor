@@ -1,0 +1,75 @@
+.new-ticket-button {
+    position: fixed;
+    right:    0.5vw;
+    bottom:   1vh;
+    z-index:  1000;
+}
+
+.new-ticket-page {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    margin:          0 auto;
+    width:           40vw;
+}
+
+.new-ticket {
+    background-color: rgba(0, 0, 0, 0.4);
+    height:           80vh;
+    margin:           1vh 0;
+    display:          flex;
+    flex-direction:   column;
+    justify-content:  center;
+    align-items:      center;
+}
+
+.new-ticket-buttons {
+    height:  5vh;
+    display: flex;
+    gap:     2vw;
+}
+
+.new-ticket-input {
+    color:       #FFF;
+    flex-grow:   1;
+    font-family: "Minecraft", sans-serif;
+    width:       100%;
+}
+
+.new-ticket-input-block {
+    display:         flex;
+    justify-content: center;
+    margin-bottom:   1vh;
+    width:           100%;
+}
+
+.new-ticket-input-wrapper {
+    align-items:     center;
+    display:         grid;
+    justify-content: center;
+    margin-bottom:   1rem;
+    width:           100%;
+}
+
+.new-ticket-input-wrapper .new-ticket-label {
+    flex:       1;
+    text-align: left;
+}
+
+.new-ticket-input-wrapper .new-ticket-input {
+    flex:       1;
+    font-size:  2rem;
+    text-align: left;
+}
+
+.new-ticket-input-wrapper .new-ticket-description {
+    text-align: left;
+    font-size:  1.5rem;
+    resize:     none;
+}
+
+.new-ticket-submit-button {
+    display:         flex;
+    justify-content: center;
+    width:           100%;
+}

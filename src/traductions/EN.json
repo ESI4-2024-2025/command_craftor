@@ -18,7 +18,23 @@
   },
   "ADMIN": {
     "TITLE": "Administration",
-    "UNWELCOME": "This place is for admins only."
+    "TICKETS": {
+      "TITLE": "Tickets",
+      "DATE": "Creation date",
+      "SUBJECT": "Subject",
+      "EMAIL": "Email",
+      "STATUS": "Status",
+      "BODY": "Description",
+      "CHANGE_STATUS": "Change status",
+      "ARCHIVE": "Archive",
+      "STATUSES": {
+        "": "",
+        "ARCHIVED": "Archived",
+        "EN_ATTENTE": "Pending",
+        "EN_COURS": "In progress",
+        "FINI": "Done"
+      }
+    }
   },
   "CONNEXION_CREATION": {
     "CREATION": "Account Creation",
@@ -56,6 +72,16 @@
       "MATERIAL_AND_ITEM": "Item and material not selected.",
       "VERSION_NOT_SUPPORTED": "This version is not supported."
     }
+  },
+  "SUPPORT": {
+    "TICKET_BUTTON": "Support",
+    "TITLE": "Support",
+    "NEW_TICKET_SEND": "Send request",
+    "TICKET_SENT": "Your request has been registered. You can follow your requests in your mailbox.",
+    "TICKET_CREATION_ERROR": "Your request couldn't be registered. Try again soon.",
+    "EMAIL": "Email",
+    "NEW_TICKET_TITLE": "Subject",
+    "NEW_TICKET_BODY": "Description"
   },
   "MINECRAFT": {
     "ITEMS": {

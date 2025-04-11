@@ -20,19 +20,100 @@
 	height:           80vh;
 	margin:           1vh 0;
 	display:          flex;
-	flex-direction:   column;
-	justify-content:  center;
+	flex-direction:   row;
+	justify-content:  space-evenly;
 	align-items:      center;
 }
 
 .admin-menu {
-	display:        flex;
-	flex-direction: column;
-	align-items:    center;
+	height:     70vh;
+	overflow-y: auto;
+
+	> * {
+		margin: 3vh auto;
+	}
 }
 
 .admin-buttons {
 	height:  5vh;
 	display: flex;
-	gap: 2vw;
+	gap:     2vw;
+}
+
+.admin-tickets-page {
+	display:         flex;
+	flex-direction:  column;
+	justify-content: center;
+	margin:          0 auto;
+	width:           80vw;
+}
+
+.admin-tickets-list {
+	height:     70vh;
+	overflow-y: auto;
+
+	> * {
+		margin: 3vh auto;
+	}
+}
+
+.admin-ticket-display {
+	background-color: #000000;
+	border:           3px solid white;
+	box-shadow:       none;
+	color:            #FFFFFF;
+	font-family:      'Minecraft', sans-serif;
+	font-size:        1.5em;
+	padding:          20px;
+	text-align:       left;
+	height:           65vh;
+	width:      	  50%;
+	position:         relative;
+}
+
+.admin-ticket-element {
+	display:       flex;
+	align-content: center;
+}
+
+.admin-ticket-elements .McButtons {
+	display: inline-block;
+}
+
+.ticket-margin-resize {
+	margin-top:    5px !important;
+	margin-bottom: 5px !important;
+}
+
+.admin-ticket-detail {
+	display:          flex;
+	flex-direction:   row;
+	align-items:      center;
+	justify-content:  left;
+
+	> * {
+		margin-right: 2vh;
+	}
+}
+
+.admin-ticket-body {
+	display:        flex;
+	flex-direction: column;
+	justify-items:  start;
+	margin-top:     10px;
+
+	> textarea {
+		width:      100%;
+		border:     none;
+		font-size:  1em;
+		resize:     none;
+		margin:     auto;
+		text-align: left;
+	}
+}
+
+.admin-tickets-buttons {
+	display:  flex;
+	position: absolute;
+	bottom:   20px;
 }

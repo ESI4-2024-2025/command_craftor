@@ -12,6 +12,8 @@ import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
 import Forbidden from "./components/403";
 import ProtectedRoute from "./components/utilities/ProtectedRoute";
+import NewTicket from "./components/SupportSection/NewTicket";
+import TicketsMonitoring from "./components/Admin/TicketsMonitoring";
 
 function App() {
 	const [language, setLanguage] = useState("");
@@ -26,10 +28,16 @@ function App() {
 					<Route path="/commands/giveenchanteditems" element={<GiveEnchantedItems language={language}/>}/>
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
+					<Route path="/new-ticket" element={<NewTicket/>}/>
 					<Route path="/changelog" element={<Changelog/>}/>
 					<Route path="/admin" element={
 						<ProtectedRoute role='admin'>
 							<Admin/>
+						</ProtectedRoute>
+					}/>
+					<Route path="/admin/tickets" element={
+						<ProtectedRoute role='admin'>
+							<TicketsMonitoring/>
 						</ProtectedRoute>
 					}/>
 					<Route path="/forbidden" element={<Forbidden/>}/>

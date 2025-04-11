@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import ButtonsJavaEdition from "./components/utilities/ButtonsJavaEdition";
 import "./styles/Home.css";
+import "./styles/Support.css";
 import logo from "./img/Logo.png";
 
 function Home() {
@@ -21,20 +22,25 @@ function Home() {
 	}, []);
 
 	return (
-		<div className="home" data-testid="Home">
-			<div className="home-logo">
-				<img src={logo} alt="Logo"/>
-			</div>
-			<div className="home-buttons">
-				<div>
-					<ButtonsJavaEdition title="HOME.COMMANDES" taille="38" path="commands"/>
+		<>
+			<div className="home" data-testid="Home">
+				<div className="home-logo">
+					<img src={logo} alt="Logo"/>
 				</div>
-				<div className="home-buttons-dual">
-					<ButtonsJavaEdition title="HOME.PROFIL" taille="19" path="account"/>
-					<ButtonsJavaEdition title="HOME.CHANGELOG" taille="19" path="changelog"/>
+				<div className="home-buttons">
+					<div>
+						<ButtonsJavaEdition title="HOME.COMMANDES" taille="38" path="commands"/>
+					</div>
+					<div className="home-buttons-dual">
+						<ButtonsJavaEdition title="HOME.PROFIL" taille="19" path="account"/>
+						<ButtonsJavaEdition title="HOME.CHANGELOG" taille="19" path="changelog"/>
+					</div>
 				</div>
 			</div>
-		</div>
+			<div className="new-ticket-button">
+				<ButtonsJavaEdition taille="20" title="SUPPORT.TICKET_BUTTON" path="/new-ticket"/>
+			</div>
+		</>
 	);
 }
 
