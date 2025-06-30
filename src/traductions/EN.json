@@ -57,7 +57,8 @@
   },
   "COMMANDS": {
     "TITLE": "Command List",
-    "GIVE_ENCHANTED_ITEMS": "/give enchanted items"
+    "GIVE_ENCHANTED_ITEMS": "/give enchanted items",
+    "GIVE_POTIONS": "/give potions"
   },
   "GIVE_ENCHANTED_ITEMS": {
     "ITEM": "Item",
@@ -72,6 +73,14 @@
       "MATERIAL_AND_ITEM": "Item and material not selected.",
       "VERSION_NOT_SUPPORTED": "This version is not supported."
     }
+  },
+  "POTION_COMMAND": {
+    "TYPE": "Potion type",
+    "EFFECT": "Effect",
+    "DURATION": "Duration",
+    "AMPLIFIER": "Amplifier",
+    "PARTICLES": "Particles",
+    "ICON": "Icon"
   },
   "SUPPORT": {
     "TICKET_BUTTON": "Support",
@@ -155,6 +164,53 @@
       "MULTISHOT": "Multishot",
       "SILK_TOUCH": "Silk touch",
       "SHARPNESS": "Sharpness"
+    },
+    "POTIONS": {
+      "TYPES": {
+        "POTION": "Potion",
+        "SPLASH_POTION": "Splash potion",
+        "LINGERING_POTION": "Lingering potion",
+        "TIPPED_ARROW": "Tipped arrow"
+      },
+      "EFFECTS": {
+        "ABSORPTION": "Absorption",
+        "BAD_OMEN": "Bad omen",
+        "BLINDNESS": "Blindness",
+        "CONDUIT_POWER": "Conduit power",
+        "DARKNESS": "Darkness",
+        "DOLPHINS_GRACE": "Dolphins grace",
+        "FIRE_RESISTANCE": "Fire resistance",
+        "GLOWING": "Glowing",
+        "HASTE": "Haste",
+        "HEALTH_BOOST": "Health boost",
+        "HERO_OF_THE_VILLAGE": "Hero of the village",
+        "HUNGER": "Hunger",
+        "INFESTED": "Infested",
+        "INSTANT_DAMAGE": "Instant damage",
+        "INSTANT_HEALTH": "Instant health",
+        "INVISIBILITY": "Invisibility",
+        "JUMP_BOOST": "Jump boost",
+        "LEVITATION": "Levitation",
+        "LUCK": "Luck",
+        "MINING_FATIGUE": "Mining fatigue",
+        "NAUSEA": "Nausea",
+        "NIGHT_VISION": "Night vision",
+        "OOZING": "Oozing",
+        "POISON": "Poison",
+        "REGENERATION": "Regeneration",
+        "RESISTANCE": "Resistance",
+        "SATURATION": "Saturation",
+        "SLOW_FALLING": "Slow falling",
+        "SLOWNESS": "Slowness",
+        "SPEED": "Speed",
+        "STRENGTH": "Strength",
+        "UNLUCK": "Unluck",
+        "WATER_BREATHING": "Water breathing",
+        "WEAKNESS": "Weakness",
+        "WEAVING": "Weaving",
+        "WIND_CHARGED": "Wind charged",
+        "WITHER": "Wither"
+      }
     }
   }
 }
