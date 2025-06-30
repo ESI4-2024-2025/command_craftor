@@ -1,4 +1,5 @@
 interface Effects {
+	id: number
 	effect: string;
 	duration: number;
 	amplifier: number;

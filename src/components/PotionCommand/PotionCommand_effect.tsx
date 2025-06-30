@@ -12,9 +12,9 @@ interface PotionCommandProps {
 	onValuesChange: (newValues: Effect[]) => void;
 }
 
-const PotionCommand_effect = ({version, data, loading, onValuesChange}: PotionCommandProps) => {
+const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProps) => {
 	const [effectBlocks, setEffectBlocks] = useState<Effect[]>([
-		{effect: "", duration: 600, amplifier: -1, particles: true, icon: true}
+		{id: 0, effect: "", duration: 600, amplifier: -1, particles: true, icon: true}
 	]);
 	const {t} = useTranslation();
 
@@ -25,7 +25,7 @@ const PotionCommand_effect = ({version, data, loading, onValuesChange}: PotionCo
 		setEffectBlocks((prevBlocks) =>
 			prevBlocks.map((block) =>
 				block.effect === "" && data.length > 0
-					? { ...block, effect: data[0].identifier }
+					? {...block, effect: data[0].identifier}
 					: block
 			)
 		);
@@ -50,21 +50,28 @@ const PotionCommand_effect = ({version, data, loading, onValuesChange}: PotionCo
 	};
 
 	/**
-     * Add a new effect block to the effectBlocks state.
-     */
+	 * Add a new effect block to the effectBlocks state.
+	 */
 	const addEffectBlock = () => {
 		const selectedEffects = effectBlocks.map(block => block.effect);
 		const availableEffect = data.find(item => !selectedEffects.includes(item.identifier));
 
 		if (availableEffect) {
-			setEffectBlocks([...effectBlocks, {effect: availableEffect.identifier, duration: 600, amplifier: -1, particles: true, icon: true}]);
+			setEffectBlocks([...effectBlocks, {
+				id: availableEffect.id,
+				effect: availableEffect.identifier,
+				duration: 600,
+				amplifier: -1,
+				particles: true,
+				icon: true
+			}]);
 		}
 	};
 	/**
-     * Remove an effect block from the effectBlocks state.
-     *
-     * @param {number} index - The index of the effect block to remove.
-     */
+	 * Remove an effect block from the effectBlocks state.
+	 *
+	 * @param {number} index - The index of the effect block to remove.
+	 */
 	const removeEffectBlock = (index: number) => {
 		const updatedBlocks = effectBlocks.filter((_, idx) => idx !== index);
 		setEffectBlocks(updatedBlocks);
@@ -72,13 +79,13 @@ const PotionCommand_effect = ({version, data, loading, onValuesChange}: PotionCo
 	};
 
 	/**
-     * Handle the change of the select input fields.
-     * Updates the effectBlocks state with the new value.
-     *
-     * @param {number} index - The index of the effect block to update.
-     * @param {keyof Effect} field - The field to update.
-     * @param {any} value - The new value.
-     */
+	 * Handle the change of the select input fields.
+	 * Updates the effectBlocks state with the new value.
+	 *
+	 * @param {number} index - The index of the effect block to update.
+	 * @param {keyof Effect} field - The field to update.
+	 * @param {any} value - The new value.
+	 */
 	const handleSelectChange = (index: number, field: keyof Effect, value: any) => {
 		const updatedBlocks = effectBlocks.map((block, idx) =>
 			idx === index ? {...block, [field]: value} : block
