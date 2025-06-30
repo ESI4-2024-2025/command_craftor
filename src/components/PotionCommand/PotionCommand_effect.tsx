@@ -86,7 +86,7 @@ const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProp
 	 * @param {keyof Effect} field - The field to update.
 	 * @param {any} value - The new value.
 	 */
-	const handleSelectChange = (index: number, field: keyof Effect, value: any) => {
+	const handleSelectChange = (index: number, field: keyof Effect, value: string | boolean | number) => {
 		const updatedBlocks = effectBlocks.map((block, idx) =>
 			idx === index ? {...block, [field]: value} : block
 		);

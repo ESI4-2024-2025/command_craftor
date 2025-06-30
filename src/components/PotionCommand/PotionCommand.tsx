@@ -13,7 +13,7 @@ interface PotionCommandProps {
 	language: string;
 }
 
-const PotionCommand: React.FC<PotionCommandProps> = ({language}) => {
+const PotionCommand: React.FC<PotionCommandProps> = () => {
 	const [versionString, setVersion] = useState("");
 	const version = Number(versionString);
 	const [data, setData] = useState<Potions[]>([]);
