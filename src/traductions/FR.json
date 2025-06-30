@@ -57,7 +57,8 @@
   },
   "COMMANDS": {
     "TITLE": "Liste Des Commandes",
-    "GIVE_ENCHANTED_ITEMS": "/give objets enchantes"
+    "GIVE_ENCHANTED_ITEMS": "/give objets enchantes",
+    "GIVE_POTIONS": "/give potions"
   },
   "GIVE_ENCHANTED_ITEMS": {
     "ITEM": "Objet",
@@ -72,6 +73,14 @@
       "MATERIAL_AND_ITEM": "Objet et materiau non selectionnes.",
       "VERSION_NOT_SUPPORTED": "Cette version n'est pas supportee."
     }
+  },
+  "POTION_COMMAND": {
+    "TYPE": "Type de potion",
+    "EFFECT": "Effet",
+    "DURATION": "Duree",
+    "AMPLIFIER": "Amplificat°",
+    "PARTICLES": "Particules",
+    "ICON": "Icone"
   },
   "SUPPORT": {
     "TICKET_BUTTON": "Support",
@@ -155,6 +164,17 @@
       "MULTISHOT": "Multicoup",
       "SILK_TOUCH": "Toucher de soie",
       "SHARPNESS": "Tranchant"
+    },
+    "POTIONS": {
+      "TYPES": {
+        "POTION": "Potion",
+        "SPLASH_POTION": "Potion de jet",
+        "LINGERING_POTION": "Potion persistante",
+        "TIPPED_ARROW": "Fleche pointue"
+      },
+      "EFFECTS": {
+
+      }
     }
   }
 }

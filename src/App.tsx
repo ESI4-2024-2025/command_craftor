@@ -10,6 +10,7 @@ import Changelog from "./components/Changelog/Changelog";
 import LanguageSelector from "./components/Languageselector/LanguageSelector";
 import NotFound from "./components/404";
 import GiveEnchantedItems from "./components/GiveEnchantedItem/GiveEnchantedItems";
+import PotionCommand from "./components/PotionCommand/PotionCommand";
 import Forbidden from "./components/403";
 import ProtectedRoute from "./components/utilities/ProtectedRoute";
 import NewTicket from "./components/SupportSection/NewTicket";
@@ -26,6 +27,7 @@ function App() {
 					<Route path="/" element={<Home/>}/>
 					<Route path="/commands" element={<Commands/>}/>
 					<Route path="/commands/giveenchanteditems" element={<GiveEnchantedItems language={language}/>}/>
+					<Route path="/commands/givepotion" element={<PotionCommand language={language}/>}/>
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
 					<Route path="/new-ticket" element={<NewTicket/>}/>

@@ -55,7 +55,7 @@ function Account() {
 	return (
 		<div className="accounts-page">
 			<h1 className="accounts-title">{t("PROFIL.TITLE")}</h1>
-			<div className="account" data-testid="Home">
+			<div className="account">
 				<div className="account-information text-minecraft">
 					<p>{t("PROFIL.USERNAME")} : {userInfo.username}</p>
 					<p>{t("PROFIL.MAIL")} : {userInfo.email}</p>
