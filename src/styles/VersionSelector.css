@@ -1,18 +1,18 @@
 .version-selector select {
-    background-color: black;
-    border:           1px solid white;
-    box-sizing:       border-box;
-    color:            whitesmoke;
-    cursor:           pointer;
-    font-family:      "Minecraft", sans-serif;
-    font-size:        1.5rem;
-    padding:          1.5vh 1.5vw;
-    position:         fixed;
-    right:            12vw;
-    top:              2vh;
-    z-index:          1000;
+	background-color: black;
+	border:           1px solid white;
+	box-sizing:       border-box;
+	color:            whitesmoke;
+	cursor:           pointer;
+	font-family:      "Minecraft", sans-serif;
+	font-size:        1.5rem;
+	padding:          1.5vh 1.5vw;
+	position:         fixed;
+	right:            12vw;
+	top:              2vh;
+	z-index:          1000;
 }
 
-.bold-option {
-    font-weight: bold;
+.version-majeure {
+	font-weight: bold;
 }
