@@ -127,7 +127,7 @@ const PotionCommand: React.FC<PotionCommandProps> = () => {
 		<div className="potion-command">
 			<div className="back-button-container">
 				<ButtonsJavaEdition taille="20" title="GLOBAL.BACK" path="goback"/>
-				<VersionSelector setVersion={setVersion}/>
+				<VersionSelector setVersion={setVersion} minVersion={900}/>
 			</div>
 			<div className="potion-command-main-container">
 				<div className="input-block">
