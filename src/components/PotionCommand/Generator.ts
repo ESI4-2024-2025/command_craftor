@@ -12,7 +12,8 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 parce qu'on veux pas l'afficher si le user ne l'explicite pas, mais la valeur peut être 0*/
+			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
+			/** TODO: handle a null value, better than -1 */
 			if (effect.amplifier > -1 && effect.amplifier) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
@@ -37,7 +38,8 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 parce qu'on veux pas l'afficher si le user ne l'explicite pas, mais la valeur peut être 0*/
+			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
+			/** TODO: handle a null value, better than -1 */
 			if (effect.amplifier > -1 && effect.amplifier) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
@@ -62,7 +64,8 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 parce qu'on ne veut pas l'afficher si l'user ne l'explicite pas, mais la valeur peut-être 0*/
+			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
+			/** TODO: handle a null value, better than -1 */
 			if (effect.amplifier > -1 && effect.amplifier) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
@@ -88,7 +91,8 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 parce qu'on ne veut pas l'afficher si l'user ne l'explicite pas, mais la valeur peut-être 0*/
+			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
+			/** TODO: handle a null value, better than -1 */
 			if (effect.amplifier > -1 && effect.amplifier) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}

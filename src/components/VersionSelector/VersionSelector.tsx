@@ -13,6 +13,10 @@ const VersionSelector: React.FC<VersionSelectorProps> = ({setVersion, minVersion
 	const [isLoading, setIsLoading] = useState(true);
 	const {t} = useTranslation();
 
+	/**
+	 * Fetches the list of versions from the backend and filters them based on the minVersion prop.
+	 * Sets the loading state while fetching data.
+	 */
 	useEffect(() => {
 		setIsLoading(true);
 		fetch(`${process.env.REACT_APP_HOST_BACK}/version`)
@@ -24,11 +28,20 @@ const VersionSelector: React.FC<VersionSelectorProps> = ({setVersion, minVersion
 			});
 	}, []);
 
+	/**
+	 * Initializes the selected version from local storage or defaults to "2100".
+	 * This effect runs only once when the component mounts.
+	 */
 	useEffect(() => {
 		const savedVersion = localStorage.getItem("selectedVersion") || "2100";
 		setVersion(savedVersion);
 	}, [setVersion]);
 
+	/**
+	 * Handles the change event of the version selector dropdown.
+	 *
+	 * @param event The change event from the select element.
+	 */
 	const changeVersion = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const newVersion = event.target.value;
 		setVersion(newVersion);

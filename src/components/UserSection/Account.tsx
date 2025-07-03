@@ -4,13 +4,13 @@ import axios from "axios";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
 import "../../styles/Account.css";
 import {useTranslation} from "react-i18next";
-import Notification from "../utilities/Notification"; // Assuming you have a Notification component
+import Notification from "../utilities/Notification";
 
 function Account() {
 	const navigate = useNavigate();
 	const [userInfo, setUserInfo] = useState({
 		username: "",
-		email: "",
+		email: ""
 	});
 	const [isAdmin, setAdmin] = useState(false);
 	type NotificationMessage = {
@@ -20,16 +20,21 @@ function Account() {
 	const [notificationMessage, setNotificationMessage] = useState<NotificationMessage | null>(null);
 	const {t} = useTranslation();
 
+	/**
+	 * useEffect hook to fetch user information when the component mounts.
+	 * If no access token is found, redirects to the account creation or login page.
+	 * If the user is not authenticated, redirects to the same page.
+	 */
 	useEffect(() => {
 		const token = localStorage.getItem("accessToken");
 		if (!token) {
 			navigate("/account/creationorconnexion");
 		} else {
 			axios.put(`${process.env.REACT_APP_HOST_BACK}/users/current`, {}, {
-				headers: {
-					"x-access-token": token
-				}
-			})
+					headers: {
+						"x-access-token": token
+					}
+				})
 				.then(response => {
 					const {username, email, email_verified, admin} = response.data;
 					setUserInfo({username, email});
@@ -47,6 +52,10 @@ function Account() {
 		}
 	}, [navigate]);
 
+	/**
+	 * Handles the logout action by removing the access token from local storage
+	 * and reloading the page to reflect the changes.
+	 */
 	const handleLogout = () => {
 		localStorage.removeItem("accessToken");
 		window.location.reload();
@@ -59,7 +68,7 @@ function Account() {
 				<div className="account-information text-minecraft">
 					<p>{t("PROFIL.USERNAME")} : {userInfo.username}</p>
 					<p>{t("PROFIL.MAIL")} : {userInfo.email}</p>
-					{ isAdmin ? (<ButtonsJavaEdition taille="20" title="PROFIL.ADMIN" path="/admin"/>) : null }
+					{isAdmin ? (<ButtonsJavaEdition taille="20" title="PROFIL.ADMIN" path="/admin"/>) : null}
 				</div>
 			</div>
 			<div className="account-buttons">

@@ -1,24 +1,24 @@
 .commands-page {
-	margin:          0 auto;
-	width:           40vw;
 	display:         flex;
 	flex-direction:  column;
 	justify-content: center;
+	margin:          0 auto;
+	width:           40vw;
 }
 
 .commands-title {
-	text-align:    center;
-	margin-bottom: 1vh;
 	color:         #DDD;
-	font-size:     3rem;
 	font-family:   "Minecraft", sans-serif;
+	font-size:     3rem;
 	height:        5vh;
+	margin-bottom: 1vh;
+	text-align:    center;
 }
 
 .commands {
 	background-color: rgba(0, 0, 0, 0.4);
-	margin:           1vh 0;
 	height:           80vh;
+	margin:           1vh 0;
 }
 
 .commands-buttons {

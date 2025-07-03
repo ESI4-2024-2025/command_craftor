@@ -30,13 +30,12 @@ const PotionCommand: React.FC<PotionCommandProps> = () => {
 	 * Sets loading state before fetching and updates data state after receiving the response.
 	 */
 	useEffect(() => {
-		setIsLoading(true); // Set loading to true before fetching data
+		setIsLoading(true);
 		fetch(`${process.env.REACT_APP_HOST_BACK}/getPotion`)
 			.then(response => response.json())
 			.then((data: Potions[]) => {
-				console.log(data); // Log the response data
 				setData(data);
-				setIsLoading(false); // Set loading to false after data is received
+				setIsLoading(false);
 			});
 	}, []);
 
@@ -48,7 +47,7 @@ const PotionCommand: React.FC<PotionCommandProps> = () => {
 		const newCommand = generatePotionCommand(potionType, username, potionParams, version);
 		if (newCommand !== "error") {
 			setCommandResult(newCommand);
-		}else {
+		} else {
 			setCommandResult("version non supportee");
 		}
 	}, [potionType, username, potionParams, data, version]);
@@ -100,7 +99,6 @@ const PotionCommand: React.FC<PotionCommandProps> = () => {
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText(commandResult)
 			.then(() => {
-				// Make the request to the server
 				fetch(`${process.env.REACT_APP_HOST_BACK}/ARequest`, {
 					method: "POST",
 					headers: {

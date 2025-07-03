@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
-import GiveEnchanteditems_Enchantments from "./assets/GiveEnchanteditems_Enchantments";
+import GiveEnchanteditems_Enchantments from "./GiveEnchanteditems_Enchantments";
 import Notification from "../utilities/Notification";
 import "../../styles/GiveEnchantedItems.css";
 import "../../styles/InputJavaEdition.css";
@@ -32,6 +32,9 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	const {t} = useTranslation();
 	const version = Number(versionString);
 
+	/**
+	 * Fetch the items from the backend when the component mounts.
+	 */
 	useEffect(() => {
 		setIsLoading(true);
 		fetch(`${process.env.REACT_APP_HOST_BACK}/getItem`)
@@ -42,6 +45,9 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 			});
 	}, []);
 
+	/**
+	 * Reset the state when the item is set to "null" or when the item prop changes.
+	 */
 	useEffect(() => {
 		if (item === "null") {
 			setSelectedItem(null);
@@ -53,6 +59,9 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		}
 	}, [item]);
 
+	/**
+	 * Check if the selected item and material are valid based on the current version.
+	 */
 	useEffect(() => {
 		const selectedItem = data.find(dataItem => dataItem.identifier === item);
 		const selectedMaterial = selectedItem && selectedItem.materiaux.find(dataMaterial => dataMaterial.identifier === material);
@@ -67,6 +76,9 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		}
 	}, [version, data]);
 
+	/**
+	 * Update the enchantment rendered switch and material state when the selected item changes.
+	 */
 	useEffect(() => {
 		if (selectedItem !== null) {
 			setEnchantementRenderedSwitch(enchantmentRenderSwitch(item));
@@ -79,10 +91,18 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		}
 	}, [selectedItem, item, version]);
 
+	/**
+	 * Render the enchantment command when the item, selected item, enchantment values, username, material, version, or
+	 * language changes.
+	 */
 	useEffect(() => {
 		renderEnchantment(item, selectedItem, enchantmentValues, username, material);
 	}, [item, selectedItem, enchantmentValues, username, material, version, language]);
 
+	/**
+	 * generates a message if the item or material is not selected, or if the command is not supported by the current
+	 * version.
+	 */
 	const renderEnchantment = (
 		item: string,
 		selectedItem: Item | null,
@@ -123,6 +143,9 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		}
 	};
 
+	/**
+	 * Handle the change of the selected item from the dropdown.
+	 */
 	const handleSelectItemChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		setItem(event.target.value);
 		setIsMaterialDisabled(false);
@@ -139,6 +162,11 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		setShowDefaultOption(false);
 	};
 
+	/**
+	 * Handle the change of the username input.
+	 * The username can only contain letters, numbers, and underscores, and must be between 3 and 16 characters long.
+	 * (Minecraft username rules)
+	 */
 	const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;
 		const regex = /^[a-zA-Z0-9_]*$/;
@@ -147,16 +175,27 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		}
 	};
 
+	/**
+	 * Handle the change of the material dropdown.
+	 * If the material is not needed, it will not change the state.
+	 */
 	const handleMaterialChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		if (!isMaterialDisabled) {
 			setMaterial(event.target.value);
 		}
 	};
 
+	/**
+	 * Handle the change of the enchantment values.
+	 * This will update the state of enchantment values.
+	 */
 	const handleEnchantmentValuesChange = (newValues: number[]) => {
 		setEnchantmentValues(newValues);
 	};
 
+	/**
+	 * Render the enchantment component if there is an item selected and it has enchantments.
+	 */
 	const enchantmentRenderSwitch = (itemId: string) => {
 		const itemData = data.find(item => item.identifier === itemId);
 		if (!itemData || !itemData.enchantement) {
@@ -172,6 +211,10 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		);
 	};
 
+	/**
+	 * Copy the command result to the clipboard and send it to the backend.
+	 * If the command is empty or if the material is not selected, it will show a notification.
+	 */
 	const copyToClipboard = () => {
 		if (isCopyDisabled) {
 			setNotificationMessage({text: "impossible de copier une commande vide", type: "info"});

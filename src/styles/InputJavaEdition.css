@@ -1,8 +1,8 @@
 .minecraft-input {
-	background-color: #000000;
+	background-color: #000;
 	border:           3px solid white;
 	box-shadow:       none;
-	color:            #FFFFFF;
+	color:            #FFF;
 	font-family:      'Minecraft', sans-serif;
 	font-size:        1.5em;
 	padding:          10px;
@@ -17,5 +17,5 @@
 }
 
 .enchantement-value-input {
-	width:  5rem;
+	width: 5rem;
 }

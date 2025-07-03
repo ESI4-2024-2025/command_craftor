@@ -14,6 +14,9 @@ export const generateEnchantmentCommand = (
 ): string => {
 	const selectedVersion: number | null = localStorage.getItem("selectedVersion") ? Number(localStorage.getItem("selectedVersion")) : null;
 
+	/**
+	 * Generate the command for giving an enchanted item based on the selected version.
+	 */
 	if (selectedVersion && selectedVersion >= 800 && selectedVersion < 1300) {
 		let enchantments: string = "";
 

@@ -1,14 +1,14 @@
 .not-found-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	align-items:     center;
+	color:           #FFF;
+	display:         flex;
+	flex-direction:  column;
+	font-family:     "Minecraft", sans-serif;
+	font-size:       2rem;
+	font-weight:     normal;
+	height:          100vh;
 	justify-content: center;
-	height: 100vh;
-	text-align: center;
-	font-family: "Minecraft", sans-serif;
-	color : #fff;
-	font-size: 2rem;
-	font-weight: normal;
+	text-align:      center;
 }
 
 .not-found-container h1 {

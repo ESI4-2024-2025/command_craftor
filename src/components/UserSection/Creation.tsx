@@ -15,6 +15,11 @@ function Creation() {
 	const navigate = useNavigate();
 	const {t} = useTranslation();
 
+	/**
+	 * Handles the form submission for user account creation.
+	 *
+	 * @param event The form submission event.
+	 */
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 		try {
@@ -26,15 +31,19 @@ function Creation() {
 			localStorage.setItem("accessToken", response.data.accessToken);
 			navigate("/account");
 		} catch {
-			setNotificationMessage(undefined); // Reset notification message
-			setNotificationType(undefined); // Reset notification type
+			setNotificationMessage(undefined);
+			setNotificationType(undefined);
 			setTimeout(() => {
 				setNotificationMessage("Erreur de creation de compte. Veuillez verifier vos informations.");
 				setNotificationType("error");
-			}, 0); // Set new notification message and type
+			}, 0);
 		}
 	};
 
+	/**
+	 * Handles the click event on the div to submit the form.
+	 * This is used to allow clicking on the button styled as a div.
+	 */
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Enter") {

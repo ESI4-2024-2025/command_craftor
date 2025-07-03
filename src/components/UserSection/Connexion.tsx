@@ -13,8 +13,13 @@ function Connexion() {
 	const [notificationMessage, setNotificationMessage] = useState<string | undefined>(undefined);
 	const [notificationType, setNotificationType] = useState<string | undefined>(undefined);
 	const navigate = useNavigate();
-	const { t } = useTranslation();
+	const {t} = useTranslation();
 
+	/**
+	 * Handles the form submission for user login.
+	 *
+	 * @param event The form submission event.
+	 */
 	const handleSubmit = async (event: React.FormEvent) => {
 		event.preventDefault();
 		try {
@@ -22,15 +27,20 @@ function Connexion() {
 			localStorage.setItem("accessToken", response.data.accessToken);
 			navigate("/account");
 		} catch {
-			setNotificationMessage(undefined); // Reset notification message
-			setNotificationType(undefined); // Reset notification type
+			setNotificationMessage(undefined);
+			setNotificationType(undefined);
 			setTimeout(() => {
+				/** TODO translate connexion error message */
 				setNotificationMessage("Erreur de connexion. Veuillez verifier vos informations.");
 				setNotificationType("error");
-			}, 0); // Set new notification message and type
+			}, 0);
 		}
 	};
 
+	/**
+	 * Handles the click event on the div to submit the form.
+	 * This is used to allow clicking on the button styled as a div.
+	 */
 	const handleDivClick = () => {
 		const form = document.querySelector("form");
 		if (form) {
@@ -38,6 +48,10 @@ function Connexion() {
 		}
 	};
 
+	/**
+	 * Adds an event listener for the Enter key to submit the form.
+	 * This allows users to press Enter to submit the form instead of clicking the button.
+	 */
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Enter") {

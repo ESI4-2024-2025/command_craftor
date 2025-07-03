@@ -5,7 +5,7 @@
 	font-family:     "Minecraft", sans-serif;
 	height:          89vh;
 	justify-content: center;
-	margin:     auto 0;
+	margin:          auto 0;
 	width:           40vw;
 }
 
@@ -32,11 +32,11 @@
 }
 
 .creation-input-wrapper {
-	align-items: center;
-	display: flex;
+	align-items:     center;
+	display:         flex;
 	justify-content: center;
-	margin-bottom: 1rem;
-	width: 100%;
+	margin-bottom:   1rem;
+	width:           100%;
 }
 
 .creation-input-wrapper .creation-label {
@@ -50,7 +50,7 @@
 }
 
 .creation-button {
-	display: flex;
+	display:         flex;
 	justify-content: center;
-	width: 100%;
+	width:           100%;
 }

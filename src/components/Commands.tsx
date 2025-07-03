@@ -4,7 +4,7 @@ import "../styles/Commands.css";
 import {useTranslation} from "react-i18next";
 
 function Commands() {
-	const { t } = useTranslation();
+	const {t} = useTranslation();
 
 	return (
 		<div className="commands-page">
