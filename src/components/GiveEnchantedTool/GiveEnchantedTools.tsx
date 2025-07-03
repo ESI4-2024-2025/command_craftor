@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
-import GiveEnchanteditems_Enchantments from "./GiveEnchanteditems_Enchantments";
+import GiveEnchantedTools_Enchantments from "./GiveEnchantedTools_Enchantments";
 import Notification from "../utilities/Notification";
 import "../../styles/GiveEnchantedItems.css";
 import "../../styles/InputJavaEdition.css";
@@ -9,12 +9,13 @@ import {generateEnchantmentCommand} from "./Generator";
 import Item from "../../interfaces/Item";
 import Material from "../../interfaces/Material";
 import VersionSelector from "../VersionSelector/VersionSelector";
+import EnumItemType from "../../Enum/EnumItemType";
 
-interface GiveEnchantedItemsProps {
+interface GiveEnchantedToolsProps {
 	language: string;
 }
 
-const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
+const GiveEnchantedTools: React.FC<GiveEnchantedToolsProps> = ({language}) => {
 	const [versionString, setVersion] = useState("");
 	const [item, setItem] = useState("null");
 	const [selectedItem, setSelectedItem] = useState<Item | null>(null);
@@ -37,7 +38,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	 */
 	useEffect(() => {
 		setIsLoading(true);
-		fetch(`${process.env.REACT_APP_HOST_BACK}/getItem`)
+		fetch(`${process.env.REACT_APP_HOST_BACK}/getItem?type=${EnumItemType.TOOL}`)
 			.then(response => response.json())
 			.then((data: Item[]) => {
 				setData(data);
@@ -121,20 +122,20 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 
 		switch (true) {
 			case material === "null" && item === "null":
-				setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.MATERIAL_AND_ITEM")}`);
+				setCommandResult(`${t("GIVE_ENCHANTED_TOOLS.ERROR_CODE.MATERIAL_AND_ITEM")}`);
 				setIsCopyDisabled(true);
 				break;
 			case material === "null":
-				setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.MATERIAL")}`);
+				setCommandResult(`${t("GIVE_ENCHANTED_TOOLS.ERROR_CODE.MATERIAL")}`);
 				setIsCopyDisabled(true);
 				break;
 			case item === "null":
-				setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.ITEM")}`);
+				setCommandResult(`${t("GIVE_ENCHANTED_TOOLS.ERROR_CODE.ITEM")}`);
 				setIsCopyDisabled(true);
 				break;
 			default:
 				if (enchantementCommand === "error") {
-					setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.VERSION_NOT_SUPPORTED")}`);
+					setCommandResult(`${t("GIVE_ENCHANTED_TOOLS.ERROR_CODE.VERSION_NOT_SUPPORTED")}`);
 					setIsCopyDisabled(true);
 				} else {
 					setCommandResult(enchantementCommand);
@@ -202,7 +203,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 			return null;
 		}
 		return (
-			<GiveEnchanteditems_Enchantments
+			<GiveEnchantedTools_Enchantments
 				key={version}
 				enchantments={itemData.enchantement}
 				onValuesChange={handleEnchantmentValuesChange}
@@ -251,9 +252,10 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 				<ButtonsJavaEdition taille="20" title="GLOBAL.BACK" path="goback"/>
 				<VersionSelector setVersion={setVersion}/>
 			</div>
+			<h1 className="commands-title">{t("COMMANDS.GIVE_ENCHANTED_TOOLS")}</h1>
 			<div className="main-container">
 				<div className="input-block">
-					<label htmlFor="item" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.ITEM")}</label>
+					<label htmlFor="item" className="text-minecraft">{t("GIVE_ENCHANTED_TOOLS.ITEM")}</label>
 					<select className="minecraft-input fixed-width" name="item" id="item"
 							value={item} onChange={handleSelectItemChange} disabled={isLoading}>
 						{isLoading ? (
@@ -261,7 +263,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 						) : (
 							<>
 								{showDefaultOption &&
-                                    <option value="null">{t("GIVE_ENCHANTED_ITEMS.SELECT_ITEM")}</option>}
+                                    <option value="null">{t("GIVE_ENCHANTED_TOOLS.SELECT_ITEM")}</option>}
 								{data && data.filter(item => version && version >= item.version).map((item, index) => (
 									<option key={index} value={item.identifier}>{t(`MINECRAFT.ITEMS.${item.identifier.toUpperCase()}`)}</option>
 								))}
@@ -271,10 +273,10 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 				</div>
 
 				<div className="input-block">
-					<label htmlFor="material" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.MATERIAL")}</label>
+					<label htmlFor="material" className="text-minecraft">{t("GIVE_ENCHANTED_TOOLS.MATERIAL")}</label>
 					<select name="material" id="material" className="minecraft-input fixed-width"
 							value={material} onChange={handleMaterialChange} disabled={isMaterialDisabled}>
-						<option value="null">{t(`GIVE_ENCHANTED_ITEMS.${isMaterialDisabled ? "NOT_NEEDED" : "SELECT_MATERIAL"}`)}</option>
+						<option value="null">{t(`GIVE_ENCHANTED_TOOLS.${isMaterialDisabled ? "NOT_NEEDED" : "SELECT_MATERIAL"}`)}</option>
 						{selectedItem && selectedItem.materiaux && selectedItem.materiaux
 							.filter((material: Material) => version && version >= material.version)
 							.map((material: Material, index: number) => (
@@ -286,7 +288,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 				</div>
 
 				<div className="input-block">
-					<label htmlFor="username" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.USERNAME")}</label>
+					<label htmlFor="username" className="text-minecraft">{t("GIVE_ENCHANTED_TOOLS.USERNAME")}</label>
 					<input
 						type="text"
 						id="username"
@@ -316,4 +318,4 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	);
 };
 
-export default GiveEnchantedItems;
+export default GiveEnchantedTools;

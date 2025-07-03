@@ -2,7 +2,7 @@ import Effect from "../../interfaces/Effect";
 
 export const generatePotionCommand = (potionType: string, username: string, effects: Effect[], version: number) => {
 
-	if (version && version >= 900 && version < 2100) {
+	if (version && version >= 900 && version < 1200) {
 		const effectsToString = effects.map(effect => {
 			let effectString = `id:${effect.id}`;
 

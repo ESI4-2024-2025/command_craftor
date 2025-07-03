@@ -148,7 +148,7 @@ const PotionCommand: React.FC<PotionCommandProps> = () => {
 				</div>
 
 				<div className="input-block">
-					<label htmlFor="username" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.USERNAME")}</label>
+					<label htmlFor="username" className="text-minecraft">{t("GIVE_ENCHANTED_TOOLS.USERNAME")}</label>
 					<input
 						type="text"
 						id="username"
