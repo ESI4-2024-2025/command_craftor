@@ -33,12 +33,12 @@ function App() {
 					<Route path="/new-ticket" element={<NewTicket/>}/>
 					<Route path="/changelog" element={<Changelog/>}/>
 					<Route path="/admin" element={
-						<ProtectedRoute role='admin'>
+						<ProtectedRoute role="admin">
 							<Admin/>
 						</ProtectedRoute>
 					}/>
 					<Route path="/admin/tickets" element={
-						<ProtectedRoute role='admin'>
+						<ProtectedRoute role="admin">
 							<TicketsMonitoring/>
 						</ProtectedRoute>
 					}/>

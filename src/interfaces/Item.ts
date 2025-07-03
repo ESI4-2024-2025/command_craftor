@@ -1,5 +1,5 @@
-import Enchantement from './Enchantment';
-import Material from './Material';
+import Enchantement from "./Enchantment";
+import Material from "./Material";
 
 interface Item {
 	_id: string;

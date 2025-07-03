@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import ButtonsJavaEdition from "../../utilities/ButtonsJavaEdition";
-import "../../../styles/InputJavaEdition.css";
+import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
+import "../../styles/InputJavaEdition.css";
 import {useTranslation} from "react-i18next";
-import Enchantment from "../../../interfaces/Enchantment";
+import Enchantment from "../../interfaces/Enchantment";
 
 interface GiveCommand_EnchantmentsProps {
 	enchantments: Enchantment[];
@@ -11,10 +11,10 @@ interface GiveCommand_EnchantmentsProps {
 }
 
 const GiveEnchanteditems_Enchantments: React.FC<GiveCommand_EnchantmentsProps> = ({
-																			   enchantments,
-																			   onValuesChange,
-																			   resetValues
-																		   }) => {
+																					  enchantments,
+																					  onValuesChange,
+																					  resetValues
+																				  }) => {
 	const [values, setValues] = useState<number[]>([]);
 	const {t} = useTranslation();
 	const selectedVersion: number | null = localStorage.getItem("selectedVersion") ? Number(localStorage.getItem("selectedVersion")) : null;

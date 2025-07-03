@@ -12,12 +12,12 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({setLanguage}) => {
 	/**
 	 * Change the language of the website
 	 *
-	 * @param lng The language to change to
+	 * @param language The language to change to
 	 */
-	const changeLanguage = (lng: string) => {
-		i18n.changeLanguage(lng);
-		setLanguage(lng);
-		localStorage.setItem("language", lng);
+	const changeLanguage = (language: string) => {
+		i18n.changeLanguage(language);
+		setLanguage(language);
+		localStorage.setItem("language", language);
 	};
 
 	/**

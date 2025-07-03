@@ -11,15 +11,21 @@ const Notification: React.FC<NotificationProps> = ({message, duration = 3000, ty
 	const [visible, setVisible] = useState(false);
 	const [shouldRender, setShouldRender] = useState(true);
 
+	/**
+	 * useEffect hook to handle the visibility and timing of the notification.
+	 */
 	useEffect(() => {
 		setVisible(true);
 		const timer = setTimeout(() => {
 			setVisible(false);
-			setTimeout(() => setShouldRender(false), 500); // Wait for the fade-out transition to complete
+			setTimeout(() => setShouldRender(false), 500);
 		}, duration);
 		return () => clearTimeout(timer);
 	}, [message, duration]);
 
+	/**
+	 * If the message is empty, do not render the notification.
+	 */
 	if (!shouldRender) return null;
 
 	return (
