@@ -30,8 +30,7 @@ function Connexion() {
 			setNotificationMessage(undefined);
 			setNotificationType(undefined);
 			setTimeout(() => {
-				/** TODO translate connexion error message */
-				setNotificationMessage("Erreur de connexion. Veuillez verifier vos informations.");
+				setNotificationMessage(t("CONNEXION_CREATION.CONNEXION_ERROR"));
 				setNotificationType("error");
 			}, 0);
 		}
@@ -96,7 +95,7 @@ function Connexion() {
 					</div>
 				</div>
 				<div className="connexion-button" onClick={handleDivClick}>
-					<ButtonsJavaEdition taille="20" title="CONNEXION_CREATION.CONNEXION"/>
+					<ButtonsJavaEdition size="20" title="CONNEXION_CREATION.CONNEXION"/>
 				</div>
 			</form>
 			{notificationMessage && <Notification message={notificationMessage} type={notificationType}/>}

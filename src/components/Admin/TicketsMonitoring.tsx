@@ -107,7 +107,10 @@ function TicketsMonitoring() {
 	}
 
 	/**
-	 * Scroll to the ticket details container when a ticket is selected.
+	 * Archive the currently selected ticket.
+	 *
+	 * This function sends a request to the backend to archive the selected ticket.
+	 * If successful, it removes the ticket from the list and clears the selected ticket details.
 	 */
 	function archiveTicket() {
 		if (selectedTicket === null) return;
@@ -166,7 +169,7 @@ function TicketsMonitoring() {
 				<div className="admin-tickets-list">
 					{tickets.map((ticket: TicketContent, index: number) => (
 						<div key={index} className="admin-ticket-elements">
-							<ButtonsJavaEdition taille="28" title={ticket.titre} onClick={() => showTicketDetails(ticket)}/>
+							<ButtonsJavaEdition size="28" title={ticket.titre} onClick={() => showTicketDetails(ticket)}/>
 						</div>
 					))}
 				</div>
@@ -200,16 +203,16 @@ function TicketsMonitoring() {
 					</div>
 					<div className="admin-tickets-buttons">
 						{selectedTicket?.statut !== "FINI" && !selectedTicket?.archived ? (<>
-							<ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.STATUSES." + firstStatus)} onClick={() => changeTicketStatus(firstStatus)}/>
-							<ButtonsJavaEdition taille="20" title={t("ADMIN.TICKETS.STATUSES." + secondStatus)} onClick={() => changeTicketStatus(secondStatus)}/>
+							<ButtonsJavaEdition size="20" title={t("ADMIN.TICKETS.STATUSES." + firstStatus)} onClick={() => changeTicketStatus(firstStatus)}/>
+							<ButtonsJavaEdition size="20" title={t("ADMIN.TICKETS.STATUSES." + secondStatus)} onClick={() => changeTicketStatus(secondStatus)}/>
 						</>) : selectedTicket?.statut === "FINI" && !selectedTicket?.archived ? (<>
-							<ButtonsJavaEdition taille="40" title={t("ADMIN.TICKETS.ARCHIVE")} onClick={archiveTicket}/>
+							<ButtonsJavaEdition size="40" title={t("ADMIN.TICKETS.ARCHIVE")} onClick={archiveTicket}/>
 						</>) : (<></>)}
 					</div>
 				</div>
 			</div>
 			<div className="admin-buttons">
-				<ButtonsJavaEdition taille="80" title={t("GLOBAL.BACK")} path="goback"/>
+				<ButtonsJavaEdition size="80" title={t("GLOBAL.BACK")} path="goback"/>
 			</div>
 		</div>
 	);

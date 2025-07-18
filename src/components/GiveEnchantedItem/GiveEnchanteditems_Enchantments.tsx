@@ -57,9 +57,9 @@ const GiveEnchanteditems_Enchantments: React.FC<GiveCommand_EnchantmentsProps> =
 				selectedVersion && selectedVersion >= enchantment.version ? (
 					<div key={index} className="input-block">
 						<label htmlFor={`input${index}`} className="text-minecraft">{t(`MINECRAFT.ENCHANTMENTS.${enchantment.identifier.toUpperCase()}`)}</label>
-						<ButtonsJavaEdition taille="square" title="-" onClick={() => minus(index)} disabled={values[index] === 0}/>
+						<ButtonsJavaEdition size="square" title="-" onClick={() => minus(index)} disabled={values[index] === 0}/>
 						<input className="minecraft-input enchantement-value-input" id={`input${index}`} type="text" min="0" max={enchantment.lvlMax} value={values[index]} disabled/>
-						<ButtonsJavaEdition taille="square" title="+" onClick={() => plus(index, enchantment.lvlMax)} disabled={values[index] === enchantment.lvlMax}/>
+						<ButtonsJavaEdition size="square" title="+" onClick={() => plus(index, enchantment.lvlMax)} disabled={values[index] === enchantment.lvlMax}/>
 					</div>
 				) : null
 			))}
