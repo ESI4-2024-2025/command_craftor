@@ -41,8 +41,8 @@ function Creation() {
 	};
 
 	/**
-	 * Handles the click event on the div to submit the form.
-	 * This is used to allow clicking on the button styled as a div.
+	 * Handles the "Enter" key press to submit the form.
+	 * This allows users to submit the form using the keyboard.
 	 */
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
@@ -104,7 +104,7 @@ function Creation() {
 						 cancelable: true,
 						 bubbles: true
 					 }))}>
-					<ButtonsJavaEdition taille="20" title="CONNEXION_CREATION.CREATION"/>
+					<ButtonsJavaEdition size="20" title="CONNEXION_CREATION.CREATION"/>
 				</div>
 			</form>
 			{notificationMessage && <Notification message={notificationMessage} type={notificationType}/>}

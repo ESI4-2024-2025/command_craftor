@@ -68,12 +68,12 @@ function Account() {
 				<div className="account-information text-minecraft">
 					<p>{t("PROFIL.USERNAME")} : {userInfo.username}</p>
 					<p>{t("PROFIL.MAIL")} : {userInfo.email}</p>
-					{isAdmin ? (<ButtonsJavaEdition taille="20" title="PROFIL.ADMIN" path="/admin"/>) : null}
+					{isAdmin ? (<ButtonsJavaEdition size="20" title="PROFIL.ADMIN" path="/admin"/>) : null}
 				</div>
 			</div>
 			<div className="account-buttons">
-				<ButtonsJavaEdition taille="19" title="GLOBAL.BACK" path="/"/>
-				<ButtonsJavaEdition taille="19" title="PROFIL.DECONECT" onClick={handleLogout}/>
+				<ButtonsJavaEdition size="19" title="GLOBAL.BACK" path="/"/>
+				<ButtonsJavaEdition size="19" title="PROFIL.DECONECT" onClick={handleLogout}/>
 			</div>
 			{notificationMessage && <Notification message={notificationMessage.text} type={notificationMessage.type}/>}
 		</div>

@@ -37,16 +37,16 @@ function Home() {
 				</div>
 				<div className="home-buttons">
 					<div>
-						<ButtonsJavaEdition title="HOME.COMMANDES" taille="38" path="commands"/>
+						<ButtonsJavaEdition title="HOME.COMMANDES" size="38" path="commands"/>
 					</div>
 					<div className="home-buttons-dual">
-						<ButtonsJavaEdition title="HOME.PROFIL" taille="19" path="account"/>
-						<ButtonsJavaEdition title="HOME.CHANGELOG" taille="19" path="changelog"/>
+						<ButtonsJavaEdition title="HOME.PROFIL" size="19" path="account"/>
+						<ButtonsJavaEdition title="HOME.CHANGELOG" size="19" path="changelog"/>
 					</div>
 				</div>
 			</div>
 			<div className="new-ticket-button">
-				<ButtonsJavaEdition taille="20" title="SUPPORT.TICKET_BUTTON" path="/new-ticket"/>
+				<ButtonsJavaEdition size="20" title="SUPPORT.TICKET_BUTTON" path="/new-ticket"/>
 			</div>
 		</>
 	);

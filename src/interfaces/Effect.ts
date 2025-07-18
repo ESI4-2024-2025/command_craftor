@@ -2,7 +2,7 @@ interface Effects {
 	id: number;
 	effect: string;
 	duration: number;
-	amplifier: number;
+	amplifier: number | null;
 	particles: boolean;
 	icon: boolean;
 }

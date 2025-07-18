@@ -9,7 +9,7 @@ function Forbidden() {
 	return (
 		<div className="forbidden-container">
 			<h1>{t("403.MESSAGE")}</h1>
-			<ButtonsJavaEdition taille="20" title={t("403.BACK")} path="/"/>
+			<ButtonsJavaEdition size="20" title={t("403.BACK")} path="/"/>
 		</div>
 	);
 }

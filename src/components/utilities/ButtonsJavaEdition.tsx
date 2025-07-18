@@ -4,14 +4,14 @@ import "../../styles/ButtonsJavaEdition.css";
 import {useTranslation} from "react-i18next";
 
 interface McButtonsProps {
-	taille: string;
+	size: string;
 	title: string;
 	path?: string;
 	onClick?: () => void;
 	disabled?: boolean;
 }
 
-const ButtonsJavaEdition: React.FC<McButtonsProps> = ({taille, title, path, onClick, disabled}) => {
+const ButtonsJavaEdition: React.FC<McButtonsProps> = ({size, title, path, onClick, disabled}) => {
 	const {t} = useTranslation();
 	const navigate = useNavigate();
 
@@ -45,12 +45,11 @@ const ButtonsJavaEdition: React.FC<McButtonsProps> = ({taille, title, path, onCl
 	const buttonClass = `mc-button full ${disabled ? "disabled" : ""}`;
 
 	/**
-	 * Sets the style for the button based on the taille prop.
+	 * Sets the style for the button based on the size prop.
 	 */
-	/** TODO: translate "taille" */
-	const buttonStyle = taille === "square"
+	const buttonStyle = size === "square"
 		? {aspectRatio: "1/1", height: "5vh", width: "5vh", margin: "-0.7rem 1vw 0 1vw"}
-		: {width: `${taille}vw`};
+		: {width: `${size}vw`};
 
 	return (
 		<div className="McButtons" onClick={handleClick} style={buttonStyle}>

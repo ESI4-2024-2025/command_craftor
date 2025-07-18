@@ -14,7 +14,7 @@ interface PotionCommandProps {
 
 const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProps) => {
 	const [effectBlocks, setEffectBlocks] = useState<Effect[]>([
-		{id: 0, effect: "", duration: 600, amplifier: -1, particles: true, icon: true}
+		{id: 0, effect: "", duration: 600, amplifier: null, particles: true, icon: true}
 	]);
 	const {t} = useTranslation();
 
@@ -61,7 +61,7 @@ const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProp
 				id: availableEffect.id,
 				effect: availableEffect.identifier,
 				duration: 600,
-				amplifier: -1,
+				amplifier: null,
 				particles: true,
 				icon: true
 			}]);
@@ -86,7 +86,7 @@ const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProp
 	 * @param {keyof Effect} field - The field to update.
 	 * @param {any} value - The new value.
 	 */
-	const handleSelectChange = (index: number, field: keyof Effect, value: string | boolean | number) => {
+	const handleSelectChange = (index: number, field: keyof Effect, value: string | boolean | number | null) => {
 		const updatedBlocks = effectBlocks.map((block, idx) =>
 			idx === index ? {...block, [field]: value} : block
 		);
@@ -133,8 +133,8 @@ const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProp
 									className="minecraft-input text-minecraft"
 									type="text"
 									min="0"
-									value={block.amplifier === -1 ? "" : block.amplifier}
-									onChange={(e) => handleSelectChange(idx, "amplifier", e.target.value === "" ? -1 : e.target.value.replace(/[^0-9]/g, ""))}
+									value={block.amplifier === null ? "" : block.amplifier}
+									onChange={(e) => handleSelectChange(idx, "amplifier", e.target.value === "" ? null : Number(e.target.value.replace(/[^0-9]/g, "")))}
 								/>
 							</div>
 							<div className="input4">
@@ -156,13 +156,13 @@ const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProp
 						</div>
 						{effectBlocks.length > 1 && (
 							<div className="button-effect-block">
-								<ButtonsJavaEdition taille="3" title="-" onClick={() => removeEffectBlock(idx)}/>
+								<ButtonsJavaEdition size="3" title="-" onClick={() => removeEffectBlock(idx)}/>
 							</div>
 						)}
 					</div>
 				))}
 			</div>
-			<ButtonsJavaEdition taille="20" title="+" onClick={addEffectBlock}/>
+			<ButtonsJavaEdition size="20" title="+" onClick={addEffectBlock}/>
 		</div>
 	);
 };

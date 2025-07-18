@@ -197,7 +197,7 @@ ___
 				<ReactMarkdown>{markdownContent}</ReactMarkdown>
 			</div>
 			<div className="back-button">
-				<ButtonsJavaEdition taille="20" title="Retour" path="goback"/>
+				<ButtonsJavaEdition size="20" title="Retour" path="goback"/>
 			</div>
 		</div>
 	);

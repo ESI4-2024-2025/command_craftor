@@ -12,9 +12,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
-			/** TODO: handle a null value, better than -1 */
-			if (effect.amplifier > -1 && effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {
@@ -38,9 +36,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
-			/** TODO: handle a null value, better than -1 */
-			if (effect.amplifier > -1 && effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {
@@ -64,9 +60,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
-			/** TODO: handle a null value, better than -1 */
-			if (effect.amplifier > -1 && effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {
@@ -91,9 +85,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			/** -1 because we don't want to display it if the user doesn't specify it, but the value can be 0*/
-			/** TODO: handle a null value, better than -1 */
-			if (effect.amplifier > -1 && effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {

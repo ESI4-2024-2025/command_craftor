@@ -44,7 +44,8 @@
     "PHONE": "Telephone",
     "PASSWORD": "Mot de passe",
     "CREATE": "Creer un compte",
-    "CONNECT": "Se connecter"
+    "CONNECT": "Se connecter",
+    "CONNEXION_ERROR": "Erreur de connexion. Veuillez verifier vos identifiants."
   },
   "PROFIL": {
     "TITLE": "Informations de profil",

@@ -95,13 +95,13 @@ const NewTicket = () => {
 								 cancelable: true,
 								 bubbles: true
 							 }))}>
-							<ButtonsJavaEdition taille="20" title="SUPPORT.NEW_TICKET_SEND"/>
+							<ButtonsJavaEdition size="20" title="SUPPORT.NEW_TICKET_SEND"/>
 						</div>
 					</form>
 				</div>
 			</div>
 			<div className="new-ticket-buttons">
-				<ButtonsJavaEdition taille="19" title="GLOBAL.BACK" path="/"/>
+				<ButtonsJavaEdition size="19" title="GLOBAL.BACK" path="/"/>
 			</div>
 			{notificationMessage && <Notification message={notificationMessage.text} type={notificationMessage.type}/>}
 		</div>

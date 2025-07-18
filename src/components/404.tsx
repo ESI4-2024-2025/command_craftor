@@ -9,7 +9,7 @@ const NotFound = () => {
 	return (
 		<div className="not-found-container">
 			<h1>{t("404.MESSAGE")}</h1>
-			<ButtonsJavaEdition taille="20" title={t("404.BACK")} path="/"/>
+			<ButtonsJavaEdition size="20" title={t("404.BACK")} path="/"/>
 		</div>
 	);
 };

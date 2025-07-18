@@ -44,7 +44,8 @@
     "PHONE": "Phone",
     "PASSWORD": "Password",
     "CREATE": "Create an Account",
-    "CONNECT": "Login"
+    "CONNECT": "Login",
+    "CONNEXION_ERROR": "Login error. Please check your credentials."
   },
   "PROFIL": {
     "TITLE": "Profile Information",
