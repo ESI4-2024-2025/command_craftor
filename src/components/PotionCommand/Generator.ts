@@ -12,7 +12,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			if (effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {
@@ -36,7 +36,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			if (effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {
@@ -60,7 +60,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			if (effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {
@@ -85,7 +85,7 @@ export const generatePotionCommand = (potionType: string, username: string, effe
 				effectString += `,duration:0`;
 			}
 
-			if (effect.amplifier) {
+			if (effect.amplifier != null) {
 				effectString += `,amplifier:${effect.amplifier}`;
 			}
 			if (!effect.particles) {

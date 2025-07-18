@@ -134,7 +134,7 @@ const PotionCommand_effect = ({data, loading, onValuesChange}: PotionCommandProp
 									type="text"
 									min="0"
 									value={block.amplifier === null ? "" : block.amplifier}
-									onChange={(e) => handleSelectChange(idx, "amplifier", e.target.value === "" ? null : e.target.value.replace(/[^0-9]/g, ""))}
+									onChange={(e) => handleSelectChange(idx, "amplifier", e.target.value === "" ? null : Number(e.target.value.replace(/[^0-9]/g, "")))}
 								/>
 							</div>
 							<div className="input4">
