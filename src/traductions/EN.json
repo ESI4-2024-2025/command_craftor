@@ -217,5 +217,10 @@
         "WITHER": "Wither"
       }
     }
+  },
+  "AI": {
+    "OPEN": "Open AI Chat",
+    "CLOSE": "Close AI Chat",
+    "SEND": "Send"
   }
 }
