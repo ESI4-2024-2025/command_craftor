@@ -45,7 +45,7 @@ const ButtonsJavaEdition: React.FC<McButtonsProps> = ({size, title, path, onClic
 	const buttonClass = `mc-button full ${disabled ? "disabled" : ""}`;
 
 	/**
-	 * Sets the style for the button based on the taille prop.
+	 * Sets the style for the button based on the size prop.
 	 */
 	const buttonStyle = size === "square"
 		? {aspectRatio: "1/1", height: "5vh", width: "5vh", margin: "-0.7rem 1vw 0 1vw"}
