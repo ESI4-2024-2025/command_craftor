@@ -213,5 +213,10 @@
         "WITHER": "Décomposition"
       }
     }
+  },
+  "AI": {
+    "OPEN": "Ouvrir Chat IA",
+    "CLOSE": "Fermer Chat IA",
+    "SEND": "Envoyer"
   }
 }
