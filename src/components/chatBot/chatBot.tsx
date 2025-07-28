@@ -56,7 +56,7 @@ const ChatBot: React.FC = () => {
 			"- Tu dois rediriger les utilisateurs vers le générateur adapté selon leur demande.\n" +
 			"- Si une demande est impossible ou non supportée par l’application, informe l’utilisateur clairement.\n" +
 			"- Ne propose pas d’enchantements ou d’effets impossibles selon les règles de Minecraft.\n" +
-			"- ne fait pas de réponses dépassant les 255 caractères.\n" +
+			"- Ne fait pas de réponses dépassant les 255 caractères.\n" +
 			"\n" +
 			"## Exemples de requêtes utilisateur\n" +
 			"- \"Donne-moi une pioche en netherite avec Efficacité V\"\n" +
@@ -72,7 +72,7 @@ const ChatBot: React.FC = () => {
 			"- Use the built-in generators in the app according to their needs.\n" +
 			"\n" +
 			"## Language\n" +
-			"You will always respond in **French**, unless the user explicitly requests another language.\n" +
+			"You will always respond in **English**, unless the user explicitly requests another language.\n" +
 			"\n" +
 			"## Available Generators\n" +
 			"The application provides two types of generators:\n" +
@@ -152,7 +152,8 @@ const ChatBot: React.FC = () => {
 				data.candidates?.[0]?.content?.parts?.[0]?.text ||
 				"Erreur lors de la réponse";
 			setMessages(prev => [...prev, {role: "model", content: text}]);
-		} catch {
+		} catch (error) {
+			console.error("Error occurred while sending message:", error);
 			setMessages(prev => [
 				...prev,
 				{role: "model", content: "Erreur lors de la requête"}
