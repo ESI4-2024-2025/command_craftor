@@ -51,8 +51,12 @@
 }
 
 .enchantment-container {
-	max-height: 45vh;
+	max-height: 40vh;
 	overflow-y: auto;
+}
+
+.enchantment-container-custom {
+	max-height: 48vh;
 }
 
 .back-button-container {
@@ -67,4 +71,13 @@
 	height:     4rem;
 	margin:     0;
 	min-width:  25rem;
+}
+
+.commands-title {
+	color:       #DDD;
+	font-family: "Minecraft", sans-serif;
+	font-size:   3rem;
+	height:      5vh;
+	margin:      2vh 0 1vh 0;
+	text-align:  center;
 }

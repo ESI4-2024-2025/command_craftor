@@ -4,13 +4,13 @@ import "../../styles/InputJavaEdition.css";
 import {useTranslation} from "react-i18next";
 import Enchantment from "../../interfaces/Enchantment";
 
-interface GiveCommand_EnchantmentsProps {
+interface GiveEnchantedTools_EnchantmentsProps {
 	enchantments: Enchantment[];
 	onValuesChange: (newValues: number[]) => void;
 	resetValues?: boolean;
 }
 
-const GiveEnchanteditems_Enchantments: React.FC<GiveCommand_EnchantmentsProps> = ({
+const GiveEnchantedTools_Enchantments: React.FC<GiveEnchantedTools_EnchantmentsProps> = ({
 																					  enchantments,
 																					  onValuesChange,
 																					  resetValues
@@ -67,4 +67,4 @@ const GiveEnchanteditems_Enchantments: React.FC<GiveCommand_EnchantmentsProps> =
 	);
 };
 
-export default GiveEnchanteditems_Enchantments;
+export default GiveEnchantedTools_Enchantments;

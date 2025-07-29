@@ -58,10 +58,12 @@
   },
   "COMMANDS": {
     "TITLE": "Liste Des Commandes",
-    "GIVE_ENCHANTED_ITEMS": "/give objets enchantes",
-    "GIVE_POTIONS": "/give potions"
+    "GIVE_ENCHANTED_TOOLS": "Objets Enchantes",
+    "GIVE_ENCHANTED_ARMORS": "Armures Enchantees",
+    "GIVE_ENCHANTED_BOOKS": "Livres Enchantes",
+    "GIVE_POTIONS": "Potions"
   },
-  "GIVE_ENCHANTED_ITEMS": {
+  "GIVE_ENCHANTED_TOOLS": {
     "ITEM": "Objet",
     "MATERIAL": "Materiau",
     "USERNAME": "Nom d'utilisateur",
@@ -112,7 +114,8 @@
       "CROSSBOW": "Arbalete",
       "SHEARS": "Ciseaux",
       "SHIELD": "Bouclier",
-      "ELYTRA": "Elytres"
+      "ELYTRA": "Elytres",
+      "BOOK": "Livre"
     },
     "MATERIALS": {
       "WOODEN": "Bois",
@@ -164,7 +167,9 @@
       "UNBREAKING": "Solidite",
       "MULTISHOT": "Multicoup",
       "SILK_TOUCH": "Toucher de soie",
-      "SHARPNESS": "Tranchant"
+      "SHARPNESS": "Tranchant",
+      "BINDING_CURSE": "Malediction du lien eternel",
+      "VANISHING_CURSE": "Malediction de disparition"
     },
     "POTIONS": {
       "TYPES": {

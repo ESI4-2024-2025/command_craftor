@@ -1,30 +1,29 @@
 import React, {useEffect, useState} from "react";
 import ButtonsJavaEdition from "../utilities/ButtonsJavaEdition";
-import GiveEnchanteditems_Enchantments from "./GiveEnchanteditems_Enchantments";
+import GiveEnchantedBook_Enchantments from "./GiveEnchantedBook_Enchantments";
 import Notification from "../utilities/Notification";
 import "../../styles/GiveEnchantedItems.css";
 import "../../styles/InputJavaEdition.css";
 import {useTranslation} from "react-i18next";
 import {generateEnchantmentCommand} from "./Generator";
 import Item from "../../interfaces/Item";
-import Material from "../../interfaces/Material";
 import VersionSelector from "../VersionSelector/VersionSelector";
+import EnumItemType from "../../Enum/EnumItemType";
+import Enchantment from "../../interfaces/Enchantment";
 
-interface GiveEnchantedItemsProps {
+interface GiveEnchantedBookProps {
 	language: string;
 }
 
-const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
+const GiveEnchantedBook: React.FC<GiveEnchantedBookProps> = ({language}) => {
 	const [versionString, setVersion] = useState("");
 	const [item, setItem] = useState("null");
 	const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 	const [enchantmentValues, setEnchantmentValues] = useState<number[]>([]);
 	const [username, setUsername] = useState("");
-	const [material, setMaterial] = useState("");
 	const [enchantementRenderedSwitch, setEnchantementRenderedSwitch] = useState<JSX.Element | null>(null);
 	const [commandResult, setCommandResult] = useState("");
 	const [data, setData] = useState<Item[]>([]);
-	const [isMaterialDisabled, setIsMaterialDisabled] = useState(false);
 	const [notificationMessage, setNotificationMessage] = useState<{ text: string, type: string } | null>(null);
 	const [showDefaultOption, setShowDefaultOption] = useState(true);
 	const [isCopyDisabled, setIsCopyDisabled] = useState(false);
@@ -37,67 +36,37 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	 */
 	useEffect(() => {
 		setIsLoading(true);
-		fetch(`${process.env.REACT_APP_HOST_BACK}/getItem`)
+		fetch(`${process.env.REACT_APP_HOST_BACK}/getItem?type=${EnumItemType.BOOK}`)
 			.then(response => response.json())
 			.then((data: Item[]) => {
+				console.log(data);
 				setData(data);
 				setIsLoading(false);
+				setItem(data[0].identifier);
+				setSelectedItem(data[0]);
+				setEnchantementRenderedSwitch(enchantmentRenderSwitch(data[0].enchantement));
 			});
 	}, []);
-
-	/**
-	 * Reset the state when the item is set to "null" or when the item prop changes.
-	 */
-	useEffect(() => {
-		if (item === "null") {
-			setSelectedItem(null);
-			setEnchantmentValues([]);
-			setUsername("");
-			setMaterial("null");
-			setEnchantementRenderedSwitch(null);
-			setIsMaterialDisabled(false);
-		}
-	}, [item]);
 
 	/**
 	 * Check if the selected item and material are valid based on the current version.
 	 */
 	useEffect(() => {
 		const selectedItem = data.find(dataItem => dataItem.identifier === item);
-		const selectedMaterial = selectedItem && selectedItem.materiaux.find(dataMaterial => dataMaterial.identifier === material);
 		if (!selectedItem || version < selectedItem.version) {
 			setShowDefaultOption(true);
 			setSelectedItem(null);
 			setEnchantmentValues([]);
-			setMaterial("null");
-			setItem("null");
-		} else if (!selectedMaterial) {
-			setMaterial("null");
 		}
 	}, [version, data]);
-
-	/**
-	 * Update the enchantment rendered switch and material state when the selected item changes.
-	 */
-	useEffect(() => {
-		if (selectedItem !== null) {
-			setEnchantementRenderedSwitch(enchantmentRenderSwitch(item));
-			if (selectedItem.materiaux.length === 1) {
-				setMaterial("not needed");
-				setIsMaterialDisabled(true);
-			} else {
-				setIsMaterialDisabled(false);
-			}
-		}
-	}, [selectedItem, item, version]);
 
 	/**
 	 * Render the enchantment command when the item, selected item, enchantment values, username, material, version, or
 	 * language changes.
 	 */
 	useEffect(() => {
-		renderEnchantment(item, selectedItem, enchantmentValues, username, material);
-	}, [item, selectedItem, enchantmentValues, username, material, version, language]);
+		renderEnchantment(item, selectedItem, enchantmentValues, username);
+	}, [item, selectedItem, enchantmentValues, username, version, language]);
 
 	/**
 	 * generates a message if the item or material is not selected, or if the command is not supported by the current
@@ -107,59 +76,25 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 		item: string,
 		selectedItem: Item | null,
 		enchantmentValues: number[],
-		username: string,
-		material: string
+		username: string
 	): void => {
 		const enchantementCommand = generateEnchantmentCommand(
 			item,
 			selectedItem,
 			enchantmentValues,
-			username,
-			material,
-			isMaterialDisabled
+			username
 		);
 
 		switch (true) {
-			case material === "null" && item === "null":
-				setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.MATERIAL_AND_ITEM")}`);
-				setIsCopyDisabled(true);
-				break;
-			case material === "null":
-				setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.MATERIAL")}`);
-				setIsCopyDisabled(true);
-				break;
-			case item === "null":
-				setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.ITEM")}`);
-				setIsCopyDisabled(true);
-				break;
 			default:
 				if (enchantementCommand === "error") {
-					setCommandResult(`${t("GIVE_ENCHANTED_ITEMS.ERROR_CODE.VERSION_NOT_SUPPORTED")}`);
+					setCommandResult(`${t("GIVE_ENCHANTED_TOOLS.ERROR_CODE.VERSION_NOT_SUPPORTED")}`);
 					setIsCopyDisabled(true);
 				} else {
 					setCommandResult(enchantementCommand);
 					setIsCopyDisabled(false);
 				}
 		}
-	};
-
-	/**
-	 * Handle the change of the selected item from the dropdown.
-	 */
-	const handleSelectItemChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		setItem(event.target.value);
-		setIsMaterialDisabled(false);
-		const selectedItem = data.find(item => item.identifier === event.target.value);
-		if (selectedItem) {
-			setSelectedItem(selectedItem);
-			setEnchantmentValues(new Array(selectedItem.enchantement.length).fill(0));
-			setMaterial("null");
-		} else {
-			setSelectedItem(null);
-			setEnchantmentValues([]);
-			setMaterial("null");
-		}
-		setShowDefaultOption(false);
 	};
 
 	/**
@@ -176,16 +111,6 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	};
 
 	/**
-	 * Handle the change of the material dropdown.
-	 * If the material is not needed, it will not change the state.
-	 */
-	const handleMaterialChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		if (!isMaterialDisabled) {
-			setMaterial(event.target.value);
-		}
-	};
-
-	/**
 	 * Handle the change of the enchantment values.
 	 * This will update the state of enchantment values.
 	 */
@@ -196,15 +121,11 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	/**
 	 * Render the enchantment component if there is an item selected and it has enchantments.
 	 */
-	const enchantmentRenderSwitch = (itemId: string) => {
-		const itemData = data.find(item => item.identifier === itemId);
-		if (!itemData || !itemData.enchantement) {
-			return null;
-		}
+	const enchantmentRenderSwitch = (enchantements: Enchantment[]) => {
 		return (
-			<GiveEnchanteditems_Enchantments
+			<GiveEnchantedBook_Enchantments
 				key={version}
-				enchantments={itemData.enchantement}
+				enchantments={enchantements}
 				onValuesChange={handleEnchantmentValuesChange}
 				resetValues={true}
 			/>
@@ -251,17 +172,18 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 				<ButtonsJavaEdition size="20" title="GLOBAL.BACK" path="goback"/>
 				<VersionSelector setVersion={setVersion}/>
 			</div>
+			<h1 className="commands-title">{t("COMMANDS.GIVE_ENCHANTED_BOOK")}</h1>
 			<div className="main-container">
 				<div className="input-block">
-					<label htmlFor="item" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.ITEM")}</label>
+					<label htmlFor="item" className="text-minecraft">{t("GIVE_ENCHANTED_TOOLS.ITEM")}</label>
 					<select className="minecraft-input fixed-width" name="item" id="item"
-							value={item} onChange={handleSelectItemChange} disabled={isLoading}>
+							value={item} disabled={true}>
 						{isLoading ? (
 							<option value="loading">{t("GLOBAL.LOADING")}</option>
 						) : (
 							<>
 								{showDefaultOption &&
-                                    <option value="null">{t("GIVE_ENCHANTED_ITEMS.SELECT_ITEM")}</option>}
+                                    <option value="null">{t("GIVE_ENCHANTED_TOOLS.SELECT_ITEM")}</option>}
 								{data && data.filter(item => version && version >= item.version).map((item, index) => (
 									<option key={index} value={item.identifier}>{t(`MINECRAFT.ITEMS.${item.identifier.toUpperCase()}`)}</option>
 								))}
@@ -271,22 +193,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 				</div>
 
 				<div className="input-block">
-					<label htmlFor="material" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.MATERIAL")}</label>
-					<select name="material" id="material" className="minecraft-input fixed-width"
-							value={material} onChange={handleMaterialChange} disabled={isMaterialDisabled}>
-						<option value="null">{t(`GIVE_ENCHANTED_ITEMS.${isMaterialDisabled ? "NOT_NEEDED" : "SELECT_MATERIAL"}`)}</option>
-						{selectedItem && selectedItem.materiaux && selectedItem.materiaux
-							.filter((material: Material) => version && version >= material.version)
-							.map((material: Material, index: number) => (
-								<option key={index} value={material.identifier}>
-									{t(`MINECRAFT.MATERIALS.${material.identifier.toUpperCase()}`)}
-								</option>
-							))}
-					</select>
-				</div>
-
-				<div className="input-block">
-					<label htmlFor="username" className="text-minecraft">{t("GIVE_ENCHANTED_ITEMS.USERNAME")}</label>
+					<label htmlFor="username" className="text-minecraft">{t("GIVE_ENCHANTED_TOOLS.USERNAME")}</label>
 					<input
 						type="text"
 						id="username"
@@ -301,7 +208,7 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 			</div>
 
 			<div className="bar-container">
-				<div className="enchantment-container">
+				<div className="enchantment-container enchantment-container-custom">
 					{enchantementRenderedSwitch}
 				</div>
 			</div>
@@ -316,4 +223,4 @@ const GiveEnchantedItems: React.FC<GiveEnchantedItemsProps> = ({language}) => {
 	);
 };
 
-export default GiveEnchantedItems;
+export default GiveEnchantedBook;

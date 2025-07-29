@@ -58,10 +58,12 @@
   },
   "COMMANDS": {
     "TITLE": "Command List",
-    "GIVE_ENCHANTED_ITEMS": "/give enchanted items",
-    "GIVE_POTIONS": "/give potions"
+    "GIVE_ENCHANTED_TOOLS": "Give Enchanted Tools",
+    "GIVE_ENCHANTED_ARMORS": "Give Enchanted Armors",
+    "GIVE_ENCHANTED_BOOK": "Give Enchanted Book",
+    "GIVE_POTIONS": "Give Potions"
   },
-  "GIVE_ENCHANTED_ITEMS": {
+  "GIVE_ENCHANTED_TOOLS": {
     "ITEM": "Item",
     "MATERIAL": "Material",
     "USERNAME": "Username",
@@ -164,7 +166,9 @@
       "UNBREAKING": "Unbreaking",
       "MULTISHOT": "Multishot",
       "SILK_TOUCH": "Silk touch",
-      "SHARPNESS": "Sharpness"
+      "SHARPNESS": "Sharpness",
+      "BINDING_CURSE": "Curse of binding",
+      "VANISHING_CURSE": "Curse of vanishing"
     },
     "POTIONS": {
       "TYPES": {
