@@ -14,6 +14,7 @@ import Forbidden from "./components/403";
 import ProtectedRoute from "./components/utilities/ProtectedRoute";
 import NewTicket from "./components/SupportSection/NewTicket";
 import TicketsMonitoring from "./components/Admin/TicketsMonitoring";
+import ChatBot from "./components/chatBot/chatBot";
 import GiveEnchantedTools from "./components/GiveEnchantedTool/GiveEnchantedTools";
 import GiveEnchantedArmors from "./components/GiveEnchantedArmors/GiveEnchantedArmors";
 import GiveEnchantedBook from "./components/GiveEnchantedBook/GiveEnchantedBook";
@@ -49,6 +50,7 @@ function App() {
 					<Route path="/forbidden" element={<Forbidden/>}/>
 					<Route path="*" element={<NotFound/>}/>
 				</Routes>
+				<ChatBot/>
 			</BrowserRouter>
 		</div>
 	);

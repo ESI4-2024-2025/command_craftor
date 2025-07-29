@@ -1,8 +1,8 @@
 .new-ticket-button {
-	bottom:   1vh;
+	bottom:   5rem;
 	position: fixed;
-	right:    0.5vw;
-	z-index:  1000;
+	right:    0.5rem;
+	z-index:  1000000;
 }
 
 .new-ticket-page {
