@@ -33,13 +33,6 @@ function InfoModification() {
 		// Handle form submission
 	};
 
-	const handleDivClick = () => {
-		document.querySelector("form")?.dispatchEvent(new Event("submit", {
-			cancelable: true,
-			bubbles: true
-		}));
-	};
-
 	const sendVerificationEmail = async () => {
 		try {
 			const response = await axios.post(`${process.env.REACT_APP_HOST_BACK}/users/email/PasswordReset`, {email: emailState});
@@ -49,7 +42,7 @@ function InfoModification() {
 					type: "success"
 				});
 			}
-		} catch (error) {
+		} catch {
 			setNotificationMessage({
 				text: t("PROFILE.MODIFICATION.EMAIL_ERROR"),
 				type: "error"
@@ -73,7 +66,7 @@ function InfoModification() {
 					type: "success"
 				});
 			}
-		} catch (error) {
+		} catch {
 			setNotificationMessage({
 				text: t("PROFILE.MODIFICATION.ERROR"),
 				type: "error"
@@ -115,14 +108,14 @@ function InfoModification() {
 					<div className="modification-input-block">
 						<div className="modification-input-wrapper">
 							<label htmlFor="email" className="modification-label">{t("GLOBAL.PASSWORD")}</label>
-							<ButtonsJavaEdition taille="17" title="PROFILE.MODIFICATION.SEND_EMAIL" onClick={sendVerificationEmail}/>
+							<ButtonsJavaEdition size="17" title="PROFILE.MODIFICATION.SEND_EMAIL" onClick={sendVerificationEmail}/>
 						</div>
 					</div>
 				</form>
 			</div>
 			<div className="modification-buttons">
-				<ButtonsJavaEdition taille="19" title="GLOBAL.BACK" path="/account"/>
-				<ButtonsJavaEdition taille="19" title="PROFILE.MODIFICATION.MODIFY" onClick={modifyInfos}/>
+				<ButtonsJavaEdition size="19" title="GLOBAL.BACK" path="/account"/>
+				<ButtonsJavaEdition size="19" title="PROFILE.MODIFICATION.MODIFY" onClick={modifyInfos}/>
 			</div>
 
 			{notificationMessage && <Notification message={notificationMessage.text} type={notificationMessage.type}/>}
