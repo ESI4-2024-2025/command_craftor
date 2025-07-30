@@ -22,7 +22,7 @@ const GiveFood: React.FC<GiveFoodProps> = ({language}) => {
 	const [data, setData] = useState<Item[]>([]);
 	const [notificationMessage, setNotificationMessage] = useState<{ text: string, type: string } | null>(null);
 	const [showDefaultOption, setShowDefaultOption] = useState(true);
-	const isCopyDisabled = useState(false);
+	const isCopyDisabled = false;
 	const [isLoading, setIsLoading] = useState(true);
 	const {t} = useTranslation();
 	const version = Number(versionString);
@@ -36,9 +36,6 @@ const GiveFood: React.FC<GiveFoodProps> = ({language}) => {
 			.then(response => response.json())
 			.then((items: Item[]) => {
 				setData(items);
-				items.forEach((item) => {
-					console.log(item.identifier.toUpperCase());
-				})
 				setIsLoading(false);
 			});
 	}, []);

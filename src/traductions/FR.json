@@ -124,7 +124,8 @@
       "SHEARS": "Ciseaux",
       "SHIELD": "Bouclier",
       "ELYTRA": "Elytres",
-      "BOOK": "Livre","APPLE": "Pomme",
+      "BOOK": "Livre",
+      "APPLE": "Pomme",
       "BAKED_POTATO": "Pomme de terre cuite",
       "BEETROOT": "Betterave",
       "BEETROOT_SEEDS": "Graines de betterave",
@@ -140,7 +141,7 @@
       "COOKED_MUTTON": "Mouton cuit",
       "COOKED_PORKCHOP": "Côtelette de porc cuite",
       "COOKED_RABBIT": "Lapin cuit",
-      "COOKED_SALMON": "Saumon cuite",
+      "COOKED_SALMON": "Saumon cuit",
       "COOKIE": "Cookie",
       "EGG": "Œuf",
       "DRIED_KELP": "Varech séché",
@@ -229,7 +230,9 @@
       "UNBREAKING": "Solidite",
       "MULTISHOT": "Multicoup",
       "SILK_TOUCH": "Toucher de soie",
-      "SHARPNESS": "Tranchant"
+      "SHARPNESS": "Tranchant",
+      "BINDING_CURSE": "Malediction du lien eternel",
+      "VANISHING_CURSE": "Malediction de disparition"
     },
     "POTIONS": {
       "TYPES": {
