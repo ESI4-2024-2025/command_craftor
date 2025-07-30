@@ -16,6 +16,7 @@ import NewTicket from "./components/SupportSection/NewTicket";
 import TicketsMonitoring from "./components/Admin/TicketsMonitoring";
 import ChatBot from "./components/chatBot/chatBot";
 import GiveEnchantedTools from "./components/GiveEnchantedTool/GiveEnchantedTools";
+import GiveFood from "./components/GiveFood/GiveFood";
 import GiveEnchantedArmors from "./components/GiveEnchantedArmors/GiveEnchantedArmors";
 import GiveEnchantedBook from "./components/GiveEnchantedBook/GiveEnchantedBook";
 
@@ -33,6 +34,7 @@ function App() {
 					<Route path="/commands/GiveEnchantedArmors" element={<GiveEnchantedArmors language={language}/>}/>
 					<Route path="/commands/GiveEnchantedBook" element={<GiveEnchantedBook language={language}/>}/>
 					<Route path="/commands/givepotion" element={<PotionCommand language={language}/>}/>
+					<Route path="/commands/GiveFood" element={<GiveFood language={language}/>}/>
 					<Route path="/account" element={<Account/>}/>
 					<Route path="/account/creationorconnexion" element={<AccountCreationOrConnexion/>}/>
 					<Route path="/new-ticket" element={<NewTicket/>}/>

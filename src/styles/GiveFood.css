@@ -1,0 +1,94 @@
+.give-enchanted-items {
+	margin: 0 25vw;
+	width:  50vw;
+}
+
+.text-minecraft {
+	color:       white;
+	font-family: 'Minecraft', serif;
+	font-size:   2em;
+}
+
+.bar-container {
+	border-bottom: 1px solid white;
+	border-top:    1px solid white;
+	margin:        10px 0;
+	padding:       10px 0;
+}
+
+.input-block {
+	align-items:     center;
+	display:         flex;
+	flex-direction:  row;
+	justify-content: center;
+	margin-bottom:   20px;
+}
+
+.main-container {
+	display:        flex;
+	flex-direction: column;
+	padding-top:    2vh;
+}
+
+.input-block label {
+	flex:          .6;
+	padding-right: 10px;
+	text-align:    left;
+}
+
+.input-block button, .input-block input, .input-block select {
+	flex: 0.1666;
+}
+
+.command-renderer {
+	background: black;
+	border:     3px solid white;
+	cursor:     pointer;
+	height:     15vh;
+	margin-top: 10px;
+	resize:     none;
+	width:      50vw;
+}
+
+.enchantment-container {
+	max-height: 40vh;
+	overflow-y: auto;
+}
+
+.enchantment-container-custom {
+	max-height: 48vh;
+}
+
+.back-button-container {
+	left:     1vw;
+	margin:   10px;
+	position: absolute;
+	top:      1vh;
+}
+
+.fixed-width {
+	box-sizing: border-box;
+	height:     4rem;
+	margin:     0;
+	min-width:  25rem;
+}
+
+.commands-title {
+	color:       #DDD;
+	font-family: "Minecraft", sans-serif;
+	font-size:   3rem;
+	height:      5vh;
+	margin:      2vh 0 1vh 0;
+	text-align:  center;
+}
+
+.amount-input {
+	width:  10vw;
+}
+
+.amount-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 21vw;
+}

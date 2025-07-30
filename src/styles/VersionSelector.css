@@ -10,7 +10,7 @@
 	position:         fixed;
 	right:            12vw;
 	top:              2vh;
-	z-index:          1000;
+	z-index:          1000000;
 }
 
 .version-majeure {

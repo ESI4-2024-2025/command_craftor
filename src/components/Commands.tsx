@@ -15,6 +15,7 @@ function Commands() {
 					<ButtonsJavaEdition title="COMMANDS.GIVE_ENCHANTED_ARMORS" size="35" path="GiveEnchantedArmors"/>
 					<ButtonsJavaEdition title="COMMANDS.GIVE_ENCHANTED_BOOK" size="35" path="GiveEnchantedBook"/>
 					<ButtonsJavaEdition title="COMMANDS.GIVE_POTIONS" size="35" path="givepotion"/>
+					<ButtonsJavaEdition title="COMMANDS.GIVE_FOOD" size="35" path="GiveFood"/>
 				</div>
 			</div>
 			<div className="back-button">
