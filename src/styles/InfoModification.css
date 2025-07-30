@@ -1,0 +1,58 @@
+.modification-page {
+	display:         flex;
+	flex-direction:  column;
+	justify-content: center;
+	margin:          0 auto;
+	width:           40vw;
+}
+
+.modification-title {
+	color:         #DDD;
+	font-family:   "Minecraft", sans-serif;
+	font-size:     3rem;
+	height:        5vh;
+	margin-bottom: 1vh;
+	text-align:    center;
+}
+
+.modification-body {
+	background-color: rgba(0, 0, 0, 0.4);
+	height:           80vh;
+	margin:           1vh 0;
+	display:          flex;
+	flex-direction:   column;
+	justify-content:  center;
+	align-items:      center;
+}
+
+.modification-buttons {
+	height:  5vh;
+	display: flex;
+	gap: 2vw;
+}
+
+.modification-input-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.modification-input-wrapper .modification-label {
+	flex:       1;
+	text-align: right;
+}
+
+.modification-input-wrapper .modification-input {
+	flex:       1;
+	text-align: left;
+}
+
+.modification-label {
+	color:        #FFF;
+	flex-shrink:  0;
+	font-family:  "Minecraft", sans-serif;
+	font-size:    2rem;
+	margin-right: 1rem;
+}
