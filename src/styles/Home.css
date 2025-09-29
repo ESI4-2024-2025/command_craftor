@@ -80,3 +80,20 @@
 .home-page.html-bg-11 {
 	background: url("../img/Home11.png");
 }
+
+.home-page.html-bg-1,
+.home-page.html-bg-2,
+.home-page.html-bg-3,
+.home-page.html-bg-4,
+.home-page.html-bg-5,
+.home-page.html-bg-6,
+.home-page.html-bg-7,
+.home-page.html-bg-8,
+.home-page.html-bg-9,
+.home-page.html-bg-10,
+.home-page.html-bg-11 {
+	background-attachment: fixed;
+	background-position:   center;
+	background-repeat:     no-repeat;
+	background-size:       cover;
+}
