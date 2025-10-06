@@ -5,9 +5,35 @@ import ReactMarkdown from "react-markdown";
 
 function Changelog() {
 
-	const markdownContent = `# v4.3
+	const markdownContent = `# v5
 
-*22/11/2024*
+*16-09-2025*
+
+**Global :**
+
+- arrivée d'un chatbot IA bilingue accessible sur toutes les pages, avec conservation locale de l'historique pour guider l'utilisation des générateurs
+- refonte du sélecteur de versions : récupération dynamique depuis l'API, filtrage automatique et mémorisation de la dernière valeur utilisée, tout en retirant le choix des versions des écrans non liés aux commandes
+- correction de l'affichage des images de fond aléatoires sur l'accueil
+
+**Commandes :**
+
+- scission du générateur d'objets enchantés en parcours dédiés pour les outils, les armures et les livres, avec une gestion affinée des matériaux et des enchantements
+- ajout d'un générateur de potions permettant de composer potions classiques, de jet, persistantes et flèches à effets
+- ajout d'un générateur de nourriture avec gestion des quantités et de l'inventaire plein
+
+**Support :**
+
+- création d'un formulaire de ticket accessible depuis l'accueil, avec notifications de succès ou d'erreur lors de l'envoi
+
+**Administration :**
+
+- arrivée d'un espace d'administration protégé pour suivre les tickets : consultation des demandes, changement de statut et archivage des tickets résolus
+
+___
+
+# v4.2
+
+*22-11-2024*
 
 - pop up de notification déplacée en bas a gauche
 - ajout d'une page 404
